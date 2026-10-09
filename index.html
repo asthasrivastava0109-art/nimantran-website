@@ -122,7 +122,7 @@
     <div data-herovis="1" style="position:relative;z-index:1;min-width:0">
       <div data-herostage="1" style="position:relative;width:100%;aspect-ratio:100/66">
         <a data-herophone="1" href="{{ heroPhoneUrl }}" target="_blank" rel="noopener" aria-label="{{ heroPhoneLabel }}" style="{{ heroPhoneStyle }}">
-          <div data-herofloat="1" style="animation:nmDrift 9s 1.5s ease-in-out infinite">
+          <div data-herofloat="1" style="">
             <div style="position:relative;padding:4.2%;background:#1F1B1A;border-radius:15% / 7%;box-shadow:inset 0 0 0 1.5px #BFAF95, 0 34px 50px -26px rgba(74,40,26,.6)">
               <div data-devscreen="390" style="position:relative;aspect-ratio:390/844;overflow:hidden;border-radius:12% / 5.6%;background:#F1E8D8">
                 <img src="./assets/hero/live/mangal.jpg" alt="{{ heroPhoneAlt }}" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
@@ -171,8 +171,6 @@
       <img src="./assets/more/video.png" alt="The invitation as a cinematic video with film strips" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 40%;opacity:var(--w3);transform:translateY(calc((1 - var(--w3)) * 40px)) scale(calc(1.06 - var(--w3) * .06))" />
     </div>
     <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
-      <span style="position:absolute;top:0;left:52%;width:12px;height:16px;border-radius:70% 0 70% 0;background:rgba(190,70,80,.55);animation:nmFall 20s 2s linear infinite"></span>
-      <span style="position:absolute;top:0;left:36%;width:9px;height:12px;border-radius:70% 0 70% 0;background:rgba(190,70,80,.4);animation:nmFall 26s 9s linear infinite"></span>
     </div>
     <div data-moretext="1" style="position:relative;max-width:1320px;width:100%;margin:0 auto;padding:0 clamp(22px,6vw,100px) clamp(120px,16vh,170px)">
       <div style="max-width:520px">
@@ -201,7 +199,7 @@
     </div>
     <div style="position:absolute;left:0;right:0;bottom:clamp(18px,4vh,40px)">
       <div style="max-width:1320px;margin:0 auto;padding:0 clamp(14px,5vw,80px);display:flex;align-items:center;justify-content:space-between;gap:10px">
-        <button onClick="{{ morePrev }}" aria-label="Previous" style="width:clamp(44px,4vw,60px);height:clamp(44px,4vw,60px);border-radius:50%;border:1px solid rgba(201,168,103,.6);color:#C9A867;font-size:16px;flex-shrink:0" style-hover="background:rgba(201,168,103,.15)">‹</button>
+        <button data-morearrow="1" onClick="{{ morePrev }}" aria-label="Previous" style="width:clamp(44px,4vw,60px);height:clamp(44px,4vw,60px);border-radius:50%;border:1px solid rgba(201,168,103,.6);color:#C9A867;font-size:16px;flex-shrink:0" style-hover="background:rgba(201,168,103,.15)">‹</button>
         <div style="flex:1;max-width:900px;display:flex;align-items:center;justify-content:space-between">
           <sc-for list="{{ moreSteps }}" as="s" hint-placeholder-count="3">
             <div style="display:flex;align-items:center;flex:1">
@@ -215,7 +213,7 @@
             </div>
           </sc-for>
         </div>
-        <button onClick="{{ moreNext }}" aria-label="Next" style="width:clamp(44px,4vw,60px);height:clamp(44px,4vw,60px);border-radius:50%;border:1px solid rgba(201,168,103,.6);color:#C9A867;font-size:16px;flex-shrink:0" style-hover="background:rgba(201,168,103,.15)">›</button>
+        <button data-morearrow="1" onClick="{{ moreNext }}" aria-label="Next" style="width:clamp(44px,4vw,60px);height:clamp(44px,4vw,60px);border-radius:50%;border:1px solid rgba(201,168,103,.6);color:#C9A867;font-size:16px;flex-shrink:0" style-hover="background:rgba(201,168,103,.15)">›</button>
       </div>
     </div>
   </div>
@@ -223,9 +221,9 @@
 
 <section id="collection" data-theme="light" style="position:relative;overflow:hidden;background:#F2E2D0;padding:clamp(90px,11vw,130px) 0 clamp(110px,12vw,170px)">
   <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 50% at 45% 20%, rgba(255,246,232,.85), rgba(255,246,232,0) 70%), radial-gradient(50% 40% at 80% 90%, rgba(214,180,150,.25), rgba(242,226,208,0) 70%)"></div>
-  <div style="position:absolute;top:-30%;left:-20%;width:70%;height:160%;pointer-events:none;background:linear-gradient(105deg, rgba(255,250,238,0) 30%, rgba(255,250,238,.45) 48%, rgba(255,250,238,0) 66%);animation:nmBeam 20s ease-in-out infinite"></div>
-  <img src="./assets/col/fl-left2.png" alt="" style="position:absolute;left:0;top:14%;height:82%;width:auto;pointer-events:none;opacity:.95;animation:nmBreath 18s ease-in-out infinite alternate" />
-  <img src="./assets/col/fl-tr2.png" alt="" style="position:absolute;right:0;top:0;width:clamp(70px,7vw,110px);height:auto;pointer-events:none;animation:nmBreath 22s ease-in-out infinite alternate" />
+  <div style="position:absolute;top:-30%;left:-20%;width:70%;height:160%;pointer-events:none;background:linear-gradient(105deg, rgba(255,250,238,0) 30%, rgba(255,250,238,.45) 48%, rgba(255,250,238,0) 66%)"></div>
+  <img src="./assets/col/fl-left2.png" alt="" style="position:absolute;left:0;top:14%;height:82%;width:auto;pointer-events:none;opacity:.95" />
+  <img src="./assets/col/fl-tr2.png" alt="" style="position:absolute;right:0;top:0;width:clamp(70px,7vw,110px);height:auto;pointer-events:none" />
   <img src="./assets/col/fl-bottom2.png" alt="" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;min-height:90px;object-fit:cover;pointer-events:none" />
   <div style="position:relative;max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,64px)">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px 40px;margin-bottom:clamp(40px,5vw,64px)">
@@ -234,7 +232,7 @@
         <h2 data-reveal="1" style="margin:0 0 16px;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(38px,4.4vw,64px);line-height:1.02;color:#2E2420;letter-spacing:-.005em">Find the invitation<br />that feels like <em style="font-style:italic;color:#9A7A45">you.</em></h2>
         <p data-reveal="1" style="margin:0;font-size:clamp(14px,1.2vw,17px);line-height:1.6;color:#4A3A30;max-width:52ch;text-wrap:pretty">Explore four distinct invitation styles, each designed around a different mood.</p>
       </div>
-      <div data-reveal="1" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding-bottom:8px">
+      <div data-reveal="1" data-colnote="1" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding-bottom:8px">
         <div style="display:flex;align-items:center;gap:12px"><span style="width:clamp(50px,7vw,110px);height:1px;background:rgba(185,154,85,.6)"></span><span style="width:8px;height:8px;border:1px solid #B99A55;transform:rotate(45deg);display:block"></span><span style="width:clamp(50px,7vw,110px);height:1px;background:rgba(185,154,85,.6)"></span></div>
         <p style="margin:0;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#9A7A45">Four moods · One Nimantran</p>
         <p style="margin:0;font-size:14px;line-height:1.75;color:#4A3A30">Same love. Different stories.<br />Choose a design that feels like yours.</p>
@@ -245,7 +243,7 @@
         <p data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.06em;color:#4A3A30">01</p>
         <h3 data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(28px,2.5vw,38px);line-height:1.05;color:#5E7BA0;white-space:nowrap">Above the Clouds</h3>
         <p data-reveal="1" style="margin:0 0 clamp(16px,2vw,24px);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#5E7BA0">Dreamy · Pastel sky</p>
-        <div style="width:100%;animation:nmFloat 7s 0s ease-in-out infinite">
+        <div style="width:100%">
           <button data-tplbtn="1" data-tplobj="1" onClick="{{ open0 }}" aria-label="View Above the Clouds live invitation" style="position:relative;display:block;width:100%;aspect-ratio:357/440;padding:0;border:0;background:none;cursor:pointer;perspective:1200px">
             <div data-colmask="1" style="position:absolute;inset:0;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
               <div data-tplart="1" style="position:absolute;inset:0;transition:transform 1.2s cubic-bezier(.22,.7,.2,1), filter 1.2s;transform-origin:50% 100%;filter:drop-shadow(0 24px 30px rgba(90,50,30,.16))">
@@ -263,7 +261,7 @@
         <p data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.06em;color:#4A3A30">02</p>
         <h3 data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(28px,2.5vw,38px);line-height:1.05;color:#5A1420;white-space:nowrap">The Royal Chapter</h3>
         <p data-reveal="1" style="margin:0 0 clamp(16px,2vw,24px);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#5A1420">Regal · Heritage</p>
-        <div style="width:100%;animation:nmFloat 8s 0.8s ease-in-out infinite">
+        <div style="width:100%">
           <button data-tplbtn="1" data-tplobj="1" onClick="{{ open1 }}" aria-label="View The Royal Chapter live invitation" style="position:relative;display:block;width:100%;aspect-ratio:357/440;padding:0;border:0;background:none;cursor:pointer;perspective:1200px">
             <div data-colmask="1" style="position:absolute;inset:0;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
               <div data-tplart="1" style="position:absolute;inset:0;transition:transform 1.2s cubic-bezier(.22,.7,.2,1), filter 1.2s;transform-origin:50% 100%;filter:drop-shadow(0 24px 30px rgba(90,50,30,.16))">
@@ -281,7 +279,7 @@
         <p data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.06em;color:#4A3A30">03</p>
         <h3 data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(28px,2.5vw,38px);line-height:1.05;color:#3E5B3C;white-space:nowrap">A Story in Blue</h3>
         <p data-reveal="1" style="margin:0 0 clamp(16px,2vw,24px);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#3E5B3C">Garden · Minimal</p>
-        <div style="width:100%;animation:nmFloat 9s 1.6s ease-in-out infinite">
+        <div style="width:100%">
           <button data-tplbtn="1" data-tplobj="1" onClick="{{ open2 }}" aria-label="View A Story in Blue live invitation" style="position:relative;display:block;width:100%;aspect-ratio:357/440;padding:0;border:0;background:none;cursor:pointer;perspective:1200px">
             <div data-colmask="1" style="position:absolute;inset:0;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
               <div data-tplart="1" style="position:absolute;inset:0;transition:transform 1.2s cubic-bezier(.22,.7,.2,1), filter 1.2s;transform-origin:50% 100%;filter:drop-shadow(0 24px 30px rgba(90,50,30,.16))">
@@ -299,7 +297,7 @@
         <p data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.06em;color:#4A3A30">04</p>
         <h3 data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(28px,2.5vw,38px);line-height:1.05;color:#1C2342;white-space:nowrap">Mangal</h3>
         <p data-reveal="1" style="margin:0 0 clamp(16px,2vw,24px);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#1C2342">Moonlit · Night</p>
-        <div style="width:100%;animation:nmFloat 10s 2.4000000000000004s ease-in-out infinite">
+        <div style="width:100%">
           <button data-tplbtn="1" data-tplobj="1" onClick="{{ open3 }}" aria-label="View Mangal live invitation" style="position:relative;display:block;width:100%;aspect-ratio:357/440;padding:0;border:0;background:none;cursor:pointer;perspective:1200px">
             <div data-colmask="1" style="position:absolute;inset:0;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
               <div data-tplart="1" style="position:absolute;inset:0;transition:transform 1.2s cubic-bezier(.22,.7,.2,1), filter 1.2s;transform-origin:50% 100%;filter:drop-shadow(0 24px 30px rgba(90,50,30,.16))">
@@ -352,8 +350,8 @@
           <div style="position:absolute;inset:9px 9px auto;height:62%;border-radius:50% 50% 0 0 / 40% 40% 0 0;border:1px solid rgba(255,250,242,.7);border-bottom:0;pointer-events:none"></div>
           <div data-fvis="1" style="position:relative;width:100%;height:clamp(190px,16.5vw,240px);display:grid;place-items:center;transition:transform 1.2s cubic-bezier(.22,.7,.2,1)">
             <div style="position:relative;width:100%;height:100%">
-              <span style="position:absolute;left:10%;top:28%;font-size:20px;color:#B99A55;animation:nmFloat 7s ease-in-out infinite">♪</span>
-              <span style="position:absolute;right:10%;top:24%;font-size:20px;color:#B99A55;animation:nmFloat 8s 1.2s ease-in-out infinite">♫</span>
+              <span style="position:absolute;left:10%;top:28%;font-size:20px;color:#B99A55">♪</span>
+              <span style="position:absolute;right:10%;top:24%;font-size:20px;color:#B99A55">♫</span>
               <div style="position:absolute;left:16%;top:46%;display:flex;align-items:flex-end;gap:2px;height:20px"><span style="width:2px;height:50%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.1s ease-in-out infinite"></span><span style="width:2px;height:80%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.23s ease-in-out infinite"></span><span style="width:2px;height:40%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.36s ease-in-out infinite"></span><span style="width:2px;height:100%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.4900000000000002s ease-in-out infinite"></span><span style="width:2px;height:60%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.62s ease-in-out infinite"></span><span style="width:2px;height:90%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.75s ease-in-out infinite"></span><span style="width:2px;height:45%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.8800000000000001s ease-in-out infinite"></span></div>
               <div style="position:absolute;right:16%;top:46%;display:flex;align-items:flex-end;gap:2px;height:20px"><span style="width:2px;height:60%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.2s ease-in-out infinite"></span><span style="width:2px;height:90%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.31s ease-in-out infinite"></span><span style="width:2px;height:50%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.42s ease-in-out infinite"></span><span style="width:2px;height:100%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.53s ease-in-out infinite"></span><span style="width:2px;height:40%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.64s ease-in-out infinite"></span><span style="width:2px;height:80%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.75s ease-in-out infinite"></span><span style="width:2px;height:50%;background:rgba(185,154,85,.7);transform-origin:bottom;animation:nmBar 1.8599999999999999s ease-in-out infinite"></span></div>
               <div style="position:absolute;left:50%;top:4%;width:min(54%,128px);aspect-ratio:1;transform:translateX(-50%)">
@@ -498,16 +496,13 @@
 
 <section id="occasions" data-theme="light" style="{{ occBg }}">
   <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
-    <span style="position:absolute;top:0;left:8%;width:9px;height:12px;border-radius:70% 0 70% 0;background:rgba(140,40,50,.35);animation:nmFall 24s linear infinite"></span>
-    <span style="position:absolute;top:0;left:46%;width:7px;height:10px;border-radius:70% 0 70% 0;background:rgba(201,140,120,.45);animation:nmFall 28s 6s linear infinite"></span>
-    <span style="position:absolute;top:0;left:88%;width:8px;height:11px;border-radius:70% 0 70% 0;background:rgba(185,154,85,.45);animation:nmFall 26s 12s linear infinite"></span>
   </div>
   <div style="position:relative;max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,56px)">
     <div data-reveal="1" style="display:flex;align-items:center;gap:22px;margin-bottom:clamp(28px,4vw,48px)">
       <span style="font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#8C7347">Occasions</span>
       <span style="flex:1;height:1px;background:linear-gradient(90deg,rgba(185,154,85,.7),rgba(185,154,85,.15));display:block"></span>
     </div>
-    <div data-g="occ" style="display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,64px);align-items:center">
+    <div data-g="occ" style="display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center">
       <div>
         <h2 data-reveal="1" style="margin:0 0 22px;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(36px,4.4vw,64px);line-height:1.04;color:#4A1018;max-width:12ch">For every reason worth gathering.</h2>
         <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;margin-bottom:clamp(28px,5vh,52px)">
@@ -531,7 +526,7 @@
             </sc-for>
           </div>
         </div>
-        <div data-mob="1" data-swipe="1" style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px;padding:0 20px 4px">
+        <div data-mob="1" data-occchips="1" style="display:flex;flex-wrap:wrap;gap:8px">
           <sc-for list="{{ catList }}" as="c" hint-placeholder-count="8">
             <button onClick="{{ c.enter }}" style="{{ c.chipStyle }}"><img loading="lazy" decoding="async" src="{{ c.icon }}" alt="" width="16" height="16" style="display:block" />{{ c.name }}</button>
           </sc-for>
@@ -602,7 +597,7 @@
       <div data-fcard2="1" style="position:relative;flex:1;display:flex;flex-direction:column;border-radius:50% 50% 16px 16px / 24% 24% 16px 16px;border:1px solid rgba(201,165,106,.32);background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(0,0,0,.08));overflow:hidden;transition:transform 1s cubic-bezier(.22,.7,.2,1), box-shadow 1s cubic-bezier(.22,.7,.2,1), border-color 1s, opacity .8s">
         <div style="position:relative;width:100%;aspect-ratio:321/400;overflow:hidden">
           <img data-fimg="1" src="./assets/fmt/fmt-1.png" alt="A printed invitation for Aarav and Meera with a rose-covered arch" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s cubic-bezier(.22,.7,.2,1)" />
-          <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,226,180,0) 30%, rgba(255,226,180,.12) 48%, rgba(255,226,180,0) 62%);animation:nmBeam 16s 0s ease-in-out infinite;pointer-events:none"></span>
+          <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,226,180,0) 30%, rgba(255,226,180,.12) 48%, rgba(255,226,180,0) 62%);pointer-events:none"></span>
           
           <span style="position:absolute;top:auto;bottom:46px;right:clamp(16px,2vw,28px);font-size:9px;letter-spacing:.22em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:#E6D3A3;color:#3D0C11">Available</span>
         </div>
@@ -622,7 +617,7 @@
       <div data-fcard2="1" style="position:relative;flex:1;display:flex;flex-direction:column;border-radius:50% 50% 16px 16px / 24% 24% 16px 16px;border:1px solid rgba(201,165,106,.32);background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(0,0,0,.08));overflow:hidden;transition:transform 1s cubic-bezier(.22,.7,.2,1), box-shadow 1s cubic-bezier(.22,.7,.2,1), border-color 1s, opacity .8s">
         <div style="position:relative;width:100%;aspect-ratio:321/400;overflow:hidden">
           <img data-fimg="1" src="./assets/fmt/fmt-2.png" alt="A film strip showing a wedding walkway at golden hour" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s cubic-bezier(.22,.7,.2,1)" />
-          <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,226,180,0) 30%, rgba(255,226,180,.12) 48%, rgba(255,226,180,0) 62%);animation:nmBeam 18s 1s ease-in-out infinite;pointer-events:none"></span>
+          <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,226,180,0) 30%, rgba(255,226,180,.12) 48%, rgba(255,226,180,0) 62%);pointer-events:none"></span>
           <span style="position:absolute;left:41.5%;top:51%;width:16%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(251,244,232,.8);animation:nmPulse 2.8s ease-out infinite;pointer-events:none"></span>
           <span style="position:absolute;top:auto;bottom:46px;right:clamp(16px,2vw,28px);font-size:9px;letter-spacing:.22em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:rgba(30,8,12,.6);color:#E6D3A3;border:1px solid rgba(230,211,163,.45);backdrop-filter:blur(6px)">Coming soon</span>
         </div>
@@ -642,7 +637,7 @@
       <div data-fcard2="1" style="position:relative;flex:1;display:flex;flex-direction:column;border-radius:50% 50% 16px 16px / 24% 24% 16px 16px;border:1px solid rgba(201,165,106,.32);background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(0,0,0,.08));overflow:hidden;transition:transform 1s cubic-bezier(.22,.7,.2,1), box-shadow 1s cubic-bezier(.22,.7,.2,1), border-color 1s, opacity .8s">
         <div style="position:relative;width:100%;aspect-ratio:321/400;overflow:hidden">
           <img data-fimg="1" src="./assets/fmt/fmt-3.png" alt="A Save the Date card on a phone" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s cubic-bezier(.22,.7,.2,1)" />
-          <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,226,180,0) 30%, rgba(255,226,180,.12) 48%, rgba(255,226,180,0) 62%);animation:nmBeam 20s 2s ease-in-out infinite;pointer-events:none"></span>
+          <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,226,180,0) 30%, rgba(255,226,180,.12) 48%, rgba(255,226,180,0) 62%);pointer-events:none"></span>
           
           <span style="position:absolute;top:auto;bottom:46px;right:clamp(16px,2vw,28px);font-size:9px;letter-spacing:.22em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:rgba(30,8,12,.6);color:#E6D3A3;border:1px solid rgba(230,211,163,.45);backdrop-filter:blur(6px)">Coming soon</span>
         </div>
@@ -662,7 +657,7 @@
       <div data-fcard2="1" style="position:relative;flex:1;display:flex;flex-direction:column;border-radius:50% 50% 16px 16px / 24% 24% 16px 16px;border:1px solid rgba(201,165,106,.32);background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(0,0,0,.08));overflow:hidden;transition:transform 1s cubic-bezier(.22,.7,.2,1), box-shadow 1s cubic-bezier(.22,.7,.2,1), border-color 1s, opacity .8s">
         <div style="position:relative;width:100%;aspect-ratio:321/400;overflow:hidden">
           <img data-fimg="1" src="./assets/fmt/fmt-4.png" alt="Custom stationery sketches with a pen and colour swatches" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s cubic-bezier(.22,.7,.2,1)" />
-          <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,226,180,0) 30%, rgba(255,226,180,.12) 48%, rgba(255,226,180,0) 62%);animation:nmBeam 22s 3s ease-in-out infinite;pointer-events:none"></span>
+          <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,226,180,0) 30%, rgba(255,226,180,.12) 48%, rgba(255,226,180,0) 62%);pointer-events:none"></span>
           
           <span style="position:absolute;top:auto;bottom:46px;right:clamp(16px,2vw,28px);font-size:9px;letter-spacing:.22em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:#E6D3A3;color:#3D0C11">Available</span>
         </div>
@@ -721,9 +716,9 @@
         <div data-howshell="1" style="position:relative;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;border-radius:50% 50% 14px 14px / 22% 22% 14px 14px;background:linear-gradient(180deg,#F5ECDF,#F6EEE3);border:1px solid rgba(185,154,85,.28);box-shadow:0 30px 60px -40px rgba(74,40,20,.28);padding:clamp(44px,4vw,58px) 0 clamp(28px,3vw,36px);transition:transform 1s cubic-bezier(.22,.7,.2,1), box-shadow 1s cubic-bezier(.22,.7,.2,1)">
           <h3 style="margin:0 0 12px;padding:0 20px;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(26px,2.3vw,36px);line-height:1.1;color:#4A1018">Choose a design</h3>
           <p style="margin:0 0 clamp(18px,2vw,26px);padding:0 20px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#9A7A45">Pick a theme you love</p>
-          <div style="position:relative;width:calc(100% - 12px);margin:0 6px;aspect-ratio:434/422;border-radius:50% 50% 0 0 / 20% 20% 0 0;overflow:hidden">
+          <div style="position:relative;width:calc(100% - 12px);margin:0 6px;aspect-ratio:434/422;border-radius:50% 50% 0 0 / 42% 42% 0 0;overflow:hidden">
             <img data-howimg="1" src="./assets/how/how-1.png" alt="A fan of Nimantran invitation designs with an arched palace card at the front" loading="lazy" style="position:absolute;left:0;top:-4%;width:100%;height:108%;object-fit:cover;display:block;transform:translateY(calc((var(--p,.5) - .5) * -18px));transition:scale 1.6s cubic-bezier(.22,.7,.2,1)" />
-            <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,250,240,0) 30%, rgba(255,250,240,.3) 48%, rgba(255,250,240,0) 62%);animation:nmBeam 18s ease-in-out infinite;pointer-events:none"></span>
+            <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,250,240,0) 30%, rgba(255,250,240,.3) 48%, rgba(255,250,240,0) 62%);pointer-events:none"></span>
           </div>
           <p style="margin:clamp(22px,2.4vw,32px) 0 clamp(22px,2.4vw,30px);padding:0 clamp(20px,3vw,48px);font-size:clamp(14px,1.2vw,17px);line-height:1.6;color:#4A3A30;max-width:38ch;text-wrap:pretty">Explore our curated collection of designs for every kind of celebration.</p>
           <a href="#collection" style="display:inline-flex;align-items:center;justify-content:center;gap:22px;width:min(78%,330px);background:#5A1420;color:#F5ECDE;padding:20px 24px;border-radius:999px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;box-shadow:0 0 0 3px #F5ECDF, 0 0 0 4px rgba(90,20,32,.5), 0 16px 30px -16px rgba(74,16,24,.6);transition:all .6s cubic-bezier(.22,.7,.2,1)" style-hover="background:#4A1018;color:#F5ECDE;letter-spacing:.3em">Explore designs <span style="font-size:15px">→</span></a>
@@ -736,7 +731,7 @@
           <p style="margin:0 0 clamp(18px,2vw,26px);padding:0 20px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#9A7A45">Share your vision with us</p>
           <div style="position:relative;width:calc(100% - 12px);margin:0 6px;aspect-ratio:467/424;border-radius:50% 50% 0 0 / 20% 20% 0 0;overflow:hidden">
             <img data-howimg="1" src="./assets/how/how-2.png" alt="A moodboard with a sketched palace arch, fabric swatches, a wax seal and a photograph" loading="lazy" style="position:absolute;left:0;top:-4%;width:100%;height:108%;object-fit:cover;display:block;transform:translateY(calc((var(--p,.5) - .5) * -18px));transition:scale 1.6s cubic-bezier(.22,.7,.2,1)" />
-            <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,250,240,0) 30%, rgba(255,250,240,.3) 48%, rgba(255,250,240,0) 62%);animation:nmBeam 21s ease-in-out infinite;pointer-events:none"></span>
+            <span style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,250,240,0) 30%, rgba(255,250,240,.3) 48%, rgba(255,250,240,0) 62%);pointer-events:none"></span>
           </div>
           <p style="margin:clamp(22px,2.4vw,32px) 0 clamp(22px,2.4vw,30px);padding:0 clamp(20px,3vw,48px);font-size:clamp(14px,1.2vw,17px);line-height:1.6;color:#4A3A30;max-width:38ch;text-wrap:pretty">Have something unique in mind? We'll design a one-of-a-kind invitation just for you.</p>
           <a href="{{ waCustomHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:22px;width:min(84%,396px);border:1px solid rgba(185,154,85,.7);color:#8C6A3A;padding:20px 24px;border-radius:999px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;transition:all .6s cubic-bezier(.22,.7,.2,1)" style-hover="background:#B99A55;color:#F5ECDE;border:1px solid #B99A55;letter-spacing:.3em">Request a custom design <span style="font-size:15px">→</span></a>
@@ -749,7 +744,7 @@
 <footer data-theme="dark" data-prog="view" style="position:relative;overflow:hidden;min-height:clamp(620px,100svh,860px);display:grid;place-items:center;background:#4E0F17;color:#F5ECDE;padding:clamp(80px,10vh,120px) 20px clamp(40px,6vh,60px)">
   <div data-ftbg="1" style="position:absolute;inset:-3% 0;background-image:url('./assets/footer/bg.png');background-size:cover;background-position:center bottom;transform:translate3d(0,calc((var(--p,.5) - .5) * -30px),0) scale(calc(1.02 + var(--p,.5) * .02))"></div>
   <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(42% 46% at 50% 44%, rgba(70,12,20,.45), rgba(70,12,20,0) 72%)"></div>
-  <div style="position:absolute;left:-10%;top:-20%;width:55%;height:140%;pointer-events:none;background:linear-gradient(105deg, rgba(255,214,160,0) 30%, rgba(255,214,160,.08) 50%, rgba(255,214,160,0) 70%);animation:nmBeam 26s ease-in-out infinite"></div>
+  <div style="position:absolute;left:-10%;top:-20%;width:55%;height:140%;pointer-events:none;background:linear-gradient(105deg, rgba(255,214,160,0) 30%, rgba(255,214,160,.08) 50%, rgba(255,214,160,0) 70%)"></div>
   <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;max-width:1400px">
     <img data-reveal="1" src="./assets/logo/nimantran-logo-ivory.png" alt="Nimantran" style="width:clamp(260px,38vw,560px);height:auto;display:block;margin-bottom:clamp(18px,2.6vh,28px);filter:drop-shadow(0 10px 30px rgba(0,0,0,.25))" />
     <p data-reveal="1" style="margin:0;font-size:clamp(11px,1.05vw,15px);letter-spacing:.32em;text-transform:uppercase;color:#D9B77A">Digital invitations for every occasion</p>
@@ -786,16 +781,16 @@
   </div>
 </footer>
 
-<div style="{{ tagsWrap }}">
-  <a href="{{ waHref }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;background:#FBF6EC;padding:12px 18px 12px 14px;border-radius:3px 0 0 3px;box-shadow:0 14px 30px -16px rgba(37,35,35,.55), inset 0 0 0 1px rgba(185,154,85,.55);color:#4A1018;transition:transform .5s cubic-bezier(.22,.7,.2,1)" style-hover="transform:translateX(-6px);color:#4A1018">
-    <span style="width:8px;height:8px;border-radius:50%;border:1px solid #B99A55;background:#EFE4D1;display:block;flex-shrink:0"></span>
+<div data-tags="1" style="{{ tagsWrap }}">
+  <a href="{{ waHref }}" target="_blank" rel="noopener" data-tag="1" aria-label="Talk to us on WhatsApp" style="display:flex;align-items:center;gap:10px;background:#FBF6EC;padding:12px 18px 12px 14px;border-radius:3px 0 0 3px;box-shadow:0 14px 30px -16px rgba(37,35,35,.55), inset 0 0 0 1px rgba(185,154,85,.55);color:#4A1018;transition:transform .5s cubic-bezier(.22,.7,.2,1)" style-hover="transform:translateX(-6px);color:#4A1018">
+    <svg data-tagicon="1" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 19z"></path><path d="M9.2 8.6c-.3 1.2.4 2.8 1.7 4.1s2.900 2 4.100 1.700l.5-1.200-1.900-.9-.8.800c-.800-.300-1.800-1.300-2.100-2.100l.8-.8-.9-1.900z"></path></svg><span data-tagbody="1" style="display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;border-radius:50%;border:1px solid #B99A55;background:#EFE4D1;display:block;flex-shrink:0"></span>
     <span style="width:14px;height:1px;background:#B99A55;display:block;flex-shrink:0"></span>
-    <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap"><span data-tagfull="1">Talk to us on </span>WhatsApp</span>
+    <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap"><span data-tagfull="1">Talk to us on </span>WhatsApp</span></span>
   </a>
-  <a href="{{ igHref }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;background:#4A1018;padding:12px 18px 12px 14px;border-radius:3px 0 0 3px;box-shadow:0 14px 30px -16px rgba(37,35,35,.6), inset 0 0 0 1px rgba(230,211,163,.3);color:#F5ECDE;transition:transform .5s cubic-bezier(.22,.7,.2,1)" style-hover="transform:translateX(-6px);color:#E6D3A3">
-    <span style="width:8px;height:8px;border-radius:50%;border:1px solid #E6D3A3;background:#3B0C13;display:block;flex-shrink:0"></span>
+  <a href="{{ igHref }}" target="_blank" rel="noopener" data-tag="1" aria-label="DM us on Instagram" style="display:flex;align-items:center;gap:10px;background:#4A1018;padding:12px 18px 12px 14px;border-radius:3px 0 0 3px;box-shadow:0 14px 30px -16px rgba(37,35,35,.6), inset 0 0 0 1px rgba(230,211,163,.3);color:#F5ECDE;transition:transform .5s cubic-bezier(.22,.7,.2,1)" style-hover="transform:translateX(-6px);color:#E6D3A3">
+    <svg data-tagicon="1" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><rect x="4" y="4" width="16" height="16" rx="4.5"></rect><circle cx="12" cy="12" r="3.6"></circle><circle cx="16.6" cy="7.4" r=".6" fill="currentColor"></circle></svg><span data-tagbody="1" style="display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;border-radius:50%;border:1px solid #E6D3A3;background:#3B0C13;display:block;flex-shrink:0"></span>
     <span style="width:14px;height:1px;background:#E6D3A3;display:block;flex-shrink:0"></span>
-    <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap"><span data-tagfull="1">DM us on </span>Instagram</span>
+    <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap"><span data-tagfull="1">DM us on </span>Instagram</span></span>
   </a>
 </div>
 
@@ -838,7 +833,7 @@
           </div>
           <div>
             <h3 style="margin:0 0 28px;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,5vw,50px);color:#F5ECDE;text-align:center">Events</h3>
-            <div data-g="dev" style="display:grid;grid-template-columns:1fr;gap:12px">
+            <div data-g="dev" style="display:grid;grid-template-columns:minmax(0,1fr);gap:12px">
               <sc-for list="{{ dm.events }}" as="e" hint-placeholder-count="3">
                 <div style="background:#FBF6EC;padding:24px;text-align:center">
                   <p style="margin:0 0 8px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8C7347">{{ e.d }}</p>
@@ -856,7 +851,7 @@
               </sc-for>
             </div>
           </div>
-          <div data-g="demo2" style="display:grid;grid-template-columns:1fr;gap:16px">
+          <div data-g="demo2" style="display:grid;grid-template-columns:minmax(0,1fr);gap:16px">
             <div style="border:1px solid rgba(245,236,222,.22);padding:26px;display:flex;align-items:center;gap:18px">
               <button onClick="{{ toggleMusic }}" aria-label="Play music" style="width:58px;height:58px;border-radius:50%;background:#F5ECDE;color:#252323;font-size:15px;flex-shrink:0">{{ musicIcon }}</button>
               <div style="flex:1;min-width:0">
@@ -1120,7 +1115,6 @@ class Component extends DCLogic {
       [data-howcard="1"]:hover [data-howbadge="1"] { transform: translateX(-50%) translateY(-6px) !important; box-shadow: 0 0 0 6px #F1E7D8, 0 0 22px rgba(185,154,85,.45) !important; }
       [data-howcards="1"]:has([data-howcard="1"]:hover) [data-howcard="1"]:not(:hover) { opacity: .75; transition: opacity .8s; }
       @media (min-width: 1100px) { [data-howgrid="1"] { grid-template-columns: minmax(0,.62fr) minmax(0,1.38fr) !important; align-items: start; } }
-      @media (max-width: 639px) { [data-howcards="1"] { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -20px; padding: 0 8vw 20px; scrollbar-width: none; } [data-howcards="1"]::-webkit-scrollbar { display: none; } [data-howcard="1"] { flex: 0 0 84vw; scroll-snap-align: center; } }
       [data-fmtc="1"]:hover [data-fcard2="1"] { transform: translateY(-10px); border-color: rgba(230,200,142,.7) !important; box-shadow: 0 40px 70px -40px rgba(0,0,0,.8), 0 0 40px -10px rgba(201,165,106,.25); }
       [data-fmtc="1"]:hover [data-fimg="1"] { transform: scale(1.05) translateY(-1.5%); }
       [data-fmtc="1"]:hover [data-ficon="1"] { background: #C9A56A !important; color: #3D0C11 !important; transform: rotate(-6deg) scale(1.05); }
@@ -1128,7 +1122,6 @@ class Component extends DCLogic {
       [data-fmtc="1"]:hover [data-fstem="1"] { height: 30px !important; }
       [data-fmtgrid="1"]:has([data-fmtc="1"]:hover) [data-fmtc="1"]:not(:hover) [data-fcard2="1"] { opacity: .7; }
       @media (max-width: 1023px) { [data-fmtgrid="1"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; row-gap: 36px !important; } }
-      @media (max-width: 599px) { [data-fmtgrid="1"] { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -20px; padding: 0 9vw 20px; scrollbar-width: none; } [data-fmtgrid="1"]::-webkit-scrollbar { display: none; } [data-fmtc="1"] { flex: 0 0 80vw; scroll-snap-align: center; } }
       @keyframes nmType { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
       @keyframes nmCaret { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
       @keyframes nmNote { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
@@ -1161,7 +1154,6 @@ class Component extends DCLogic {
       [data-fcard="1"]:hover [data-gtop="1"] { transform: translate(-4px,-8px) scale(1.04) !important; }
       [data-featgrid="1"]:has([data-fcard="1"]:hover) [data-fcard="1"]:not(:hover) { opacity: .72; filter: saturate(.85); }
       @media (max-width: 1023px) { [data-featgrid="1"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; } }
-      @media (max-width: 559px) { [data-featgrid="1"] { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -20px; padding: 10px 10vw 24px; scrollbar-width: none; } [data-featgrid="1"]::-webkit-scrollbar { display: none; } [data-featcard="1"] { flex: 0 0 80vw; scroll-snap-align: center; } }
       [data-tplbtn="1"]:hover [data-tplart="1"] { transform: translateY(-12px) rotateX(4deg) scale(1.02); filter: drop-shadow(0 40px 40px rgba(90,50,30,.26)) !important; }
       [data-tplbtn="1"]:hover [data-tplshine="1"] { background-position: -20% 0 !important; }
       [data-colgrid="1"]:has([data-tplbtn="1"]:hover) [data-colcard="1"]:not(:has([data-tplbtn="1"]:hover)) { opacity: .62; transition: opacity .8s; }
@@ -1173,7 +1165,6 @@ class Component extends DCLogic {
       #collection [data-tplbtn="1"]:hover [data-tplshine="1"] { background-position: 120% 0 !important; }
       #collection [data-colgrid="1"] [data-colcard="1"] { opacity: 1 !important; }
       @media (max-width: 1099px) { [data-colgrid="1"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; row-gap: 64px !important; } }
-      @media (max-width: 679px) { [data-colgrid="1"] { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 18px !important; margin: 0 calc(-1 * clamp(20px,4vw,64px)); padding: 6px 9vw 20px; scrollbar-width: none; } [data-colgrid="1"]::-webkit-scrollbar { display: none; } [data-colcard="1"] { flex: 0 0 80vw; scroll-snap-align: center; } }
       @media (prefers-reduced-motion: reduce) { [data-colcard="1"] * { animation: none !important; } }
       [data-swipe="1"]::-webkit-scrollbar { display: none; }
       @media (max-aspect-ratio: 1/1) { [data-introbox="1"] { width: 190vw !important; -webkit-mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent); } }
@@ -1204,6 +1195,37 @@ class Component extends DCLogic {
       [data-herosceneinner="1"] { clip-path: inset(0 0 0 14px); -webkit-mask-image: linear-gradient(97.4deg, transparent 9.4%, #000 22%), linear-gradient(180deg, transparent 0, #000 14%); -webkit-mask-composite: source-in; mask-image: linear-gradient(97.4deg, transparent 9.4%, #000 22%), linear-gradient(180deg, transparent 0, #000 14%); mask-composite: intersect; }
       [data-g="hero"] { pointer-events: none; }
       [data-g="hero"] > * { pointer-events: auto; }
+      @media (min-width: 1024px) { [data-g="occ"] { grid-template-columns: minmax(0,.72fr) minmax(0,1.28fr) !important; } }
+      @media (min-width: 820px) and (max-width: 1023px) {
+        #occasions [data-desk="1"] { display: none !important; }
+        #occasions [data-mob="1"] { display: flex !important; align-items: center; justify-content: center; }
+        #occasions [data-occchips="1"] { justify-content: flex-start; }
+        [data-occpanel="1"] { height: clamp(460px, 70vw, 620px) !important; }
+        [data-occimg="1"] { width: 100% !important; }
+        [data-occshade="1"] { background: linear-gradient(0deg,#3A0F14 34%,rgba(58,15,20,.7) 56%,rgba(58,15,20,0) 82%) !important; }
+        [data-occtext="1"] { top: auto !important; bottom: 7% !important; left: 7% !important; right: 7% !important; width: auto !important; transform: none !important; }
+        [data-occthumbs="1"] { display: none !important; }
+      }
+      @media (max-width: 1599px) {
+        [data-tags="1"] { right: 12px !important; gap: 10px !important; }
+        [data-tag="1"] { width: 46px; height: 46px; padding: 0 !important; border-radius: 50% !important; justify-content: center; }
+        [data-tag="1"]:hover { transform: none !important; }
+        [data-tagbody="1"] { display: none !important; }
+        [data-tagicon="1"] { display: block !important; }
+      }
+      @media (max-width: 819px) { footer { padding-bottom: 76px !important; } }
+      @media (max-width: 559px) {
+        [data-morearrow="1"] { display: none !important; }
+        #more { height: 260vh !important; }
+      }
+      #collection, #features { --nm-gutter: clamp(20px,4vw,64px); } #formats { --nm-gutter: clamp(20px,4.5vw,72px); } #how { --nm-gutter: clamp(20px,4.5vw,68px); }
+      @media (max-width: 699px) {
+        [data-colgrid="1"], [data-featgrid="1"], [data-fmtgrid="1"], [data-howcards="1"] { display: flex !important; align-items: stretch; gap: 16px !important; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin: 0 calc(-1 * var(--nm-gutter, 20px)) !important; padding: 10px calc(50vw - min(40vw, 165px)) 22px !important; }
+        [data-colgrid="1"]::-webkit-scrollbar, [data-featgrid="1"]::-webkit-scrollbar, [data-fmtgrid="1"]::-webkit-scrollbar, [data-howcards="1"]::-webkit-scrollbar { display: none; }
+        [data-colcard="1"], [data-featcard="1"], [data-fmtc="1"], [data-howcard="1"] { flex: 0 0 min(80vw, 330px) !important; scroll-snap-align: center; }
+        [data-colnote="1"] { align-items: flex-start !important; text-align: left !important; }
+        [data-colnote="1"] > div:first-child { display: none !important; }
+      }
       [data-scenedev]:focus-visible { outline: 6px solid #8C7347; outline-offset: -6px; }
       @media (max-width: 899px) {
         [data-heroscene="1"] { display: none !important; }
@@ -1214,6 +1236,17 @@ class Component extends DCLogic {
       }
       @media (max-width: 559px) { [data-herocta="1"] a { flex: 1 1 100%; } }
       @media (max-width: 559px) { [data-herostrip="1"] li { padding: 0 4px !important; } [data-herostrip="1"] li span { font-size: 8.5px !important; letter-spacing: .16em !important; } }
+      @media (max-width: 399px) {
+        header > div { gap: 8px !important; padding: 0 8px 0 12px !important; }
+        header > div > div { gap: 6px !important; }
+        header > div > div > a { padding: 11px 12px !important; font-size: 9.5px !important; letter-spacing: .14em !important; }
+        header a[aria-label="Nimantran home"] > span:last-child img { height: 21px !important; }
+        [data-tag="1"] { width: 42px; height: 42px; }
+      }
+      @media (max-width: 359px) {
+        header a[aria-label="Nimantran home"] > span:first-child { display: none !important; }
+        [data-herostrip="1"] li span { letter-spacing: .08em !important; }
+      }
       @media (max-width: 479px) {
         header a[aria-label="Nimantran home"] { gap: 6px !important; min-width: 0; }
         header a[aria-label="Nimantran home"] > span:first-child img { height: 36px !important; }
@@ -1241,7 +1274,7 @@ class Component extends DCLogic {
         [data-sat] { transform-origin: center; scale: .78; }
         [data-occvis="1"] { position: sticky !important; top: 76px; z-index: 2; }
         [data-tplmain="1"] { width: 100% !important; transform: none !important; }
-        [data-occpanel="1"] { height: auto !important; aspect-ratio: 4/5.3; }
+        [data-occpanel="1"] { height: clamp(460px, 122vw, 600px) !important; }
         [data-occthumbs="1"] { display: none !important; }
         [data-occimg="1"] { width: 100% !important; }
         [data-occshade="1"] { background: linear-gradient(0deg,#3A0F14 34%,rgba(58,15,20,.7) 56%,rgba(58,15,20,0) 82%) !important; }
@@ -1253,7 +1286,6 @@ class Component extends DCLogic {
         [data-g="more"] { grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr) !important; text-align: left !important; }
         [data-g="col"] { grid-template-columns: minmax(0,.75fr) minmax(0,1.25fr) !important; }
         [data-g="feat"] { grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr) !important; }
-        [data-g="occ"] { grid-template-columns: minmax(0,.72fr) minmax(0,1.28fr) !important; }
         [data-occvis="1"] { position: sticky !important; top: 120px; order: 2; }
         [data-g="how"] { grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr) !important; }
         [data-g="custom"] { grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr) !important; }
@@ -1432,7 +1464,7 @@ class Component extends DCLogic {
 
   setupCursor() {
     if ((this.props.luxuryCursor ?? true) === false) return;
-    if (!window.matchMedia("(pointer: fine)").matches) return;
+    if (!window.matchMedia("(pointer: fine)").matches || !window.matchMedia("(hover: hover)").matches || window.innerWidth < 1024) return;
     const ring = document.createElement("div"), dot = document.createElement("div");
     Object.assign(ring.style, { position: "fixed", left: 0, top: 0, width: "34px", height: "34px", marginLeft: "-17px", marginTop: "-17px", border: "1px solid rgba(185,154,85,.85)", borderRadius: "50%", pointerEvents: "none", zIndex: 500, transition: "width .35s, height .35s, margin .35s, background .35s" });
     Object.assign(dot.style, { position: "fixed", left: 0, top: 0, width: "4px", height: "4px", marginLeft: "-2px", marginTop: "-2px", background: "#B99A55", borderRadius: "50%", pointerEvents: "none", zIndex: 501 });
