@@ -1228,9 +1228,13 @@ class Component extends DCLogic {
       }
       #collection, #features { --nm-gutter: clamp(20px,4vw,64px); } #formats { --nm-gutter: clamp(20px,4.5vw,72px); } #how { --nm-gutter: clamp(20px,4.5vw,68px); }
       @media (max-width: 699px) {
-        [data-colgrid="1"], [data-featgrid="1"], [data-fmtgrid="1"], [data-howcards="1"] { display: flex !important; align-items: stretch; gap: 16px !important; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin: 0 calc(-1 * var(--nm-gutter, 20px)) !important; padding: 10px calc(50vw - min(40vw, 165px)) 22px !important; }
-        [data-colgrid="1"]::-webkit-scrollbar, [data-featgrid="1"]::-webkit-scrollbar, [data-fmtgrid="1"]::-webkit-scrollbar, [data-howcards="1"]::-webkit-scrollbar { display: none; }
-        [data-colcard="1"], [data-featcard="1"], [data-fmtc="1"], [data-howcard="1"] { flex: 0 0 min(80vw, 330px) !important; scroll-snap-align: center; }
+        [data-colgrid="1"], [data-fmtgrid="1"], [data-howcards="1"] { display: flex !important; align-items: stretch; gap: 16px !important; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin: 0 calc(-1 * var(--nm-gutter, 20px)) !important; padding: 10px calc(50vw - min(40vw, 165px)) 22px !important; }
+        [data-colgrid="1"]::-webkit-scrollbar, [data-fmtgrid="1"]::-webkit-scrollbar, [data-howcards="1"]::-webkit-scrollbar { display: none; }
+        [data-colcard="1"], [data-fmtc="1"], [data-howcard="1"] { flex: 0 0 min(80vw, 330px) !important; scroll-snap-align: center; }
+        [data-featgrid="1"] { gap: 12px !important; }
+        [data-fcard="1"] { padding: 12px 8px 18px !important; }
+        [data-fcard="1"] h3 { font-size: clamp(17px, 4.9vw, 22px) !important; }
+        [data-fcard="1"] p { font-size: 12px !important; line-height: 1.5 !important; }
         [data-colnote="1"] { align-items: flex-start !important; text-align: left !important; }
         [data-colnote="1"] > div:first-child { display: none !important; }
         [data-colnav="1"] { display: flex !important; }
@@ -1246,6 +1250,8 @@ class Component extends DCLogic {
       }
       @media (max-width: 559px) { [data-herocta="1"] a { flex: 1 1 100%; } }
       @media (max-width: 559px) { [data-herostrip="1"] li { padding: 0 4px !important; } [data-herostrip="1"] li span { font-size: 8.5px !important; letter-spacing: .16em !important; } }
+      @media (max-width: 519px) { [data-fvis="1"] { zoom: .74; height: 200px !important; } }
+      @media (max-width: 359px) { [data-fvis="1"] { zoom: .6; height: 210px !important; } [data-featgrid="1"] { gap: 8px !important; } }
       @media (max-width: 399px) {
         header > div { gap: 8px !important; padding: 0 8px 0 12px !important; }
         header > div > div { gap: 6px !important; }
