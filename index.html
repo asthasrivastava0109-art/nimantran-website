@@ -36,6 +36,7 @@
   @keyframes nmBeam { 0%,100% { transform: translateX(-8%) rotate(0deg); opacity: .7; } 50% { transform: translateX(14%) rotate(2deg); opacity: 1; } }
   @keyframes nmBreath { 0% { transform: scale(1) translate(0,0); } 100% { transform: scale(1.045) translate(-1%,-1%); } }
   @keyframes nmDraw { 0% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+  @keyframes nmDrift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
   @keyframes nmHint { 0%,100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(8px); opacity: 1; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
@@ -87,62 +88,75 @@
   </div>
 </div>
 
-<section id="top" data-theme="light" style="position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;padding-top:clamp(92px,12vh,124px);background:#F2E5D2">
-  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 60% at 20% 40%, rgba(250,240,224,.9), rgba(250,240,224,0) 70%), radial-gradient(40% 50% at 0% 100%, rgba(170,120,90,.14), rgba(245,236,222,0) 70%)"></div>
-  <div data-herobleed="1" style="{{ heroVis }}">
-    <div style="position:absolute;inset:0;transform:translate3d(0,calc(var(--sy,0) * .12px),0)">
-      <div data-heroimg="1" style="position:absolute;right:0;top:clamp(84px,11vh,120px);bottom:clamp(170px,24vh,250px);width:min(62vw,1200px);-webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 28%), linear-gradient(180deg, transparent 0%, #000 12%, #000 72%, transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg, transparent 0%, #000 28%), linear-gradient(180deg, transparent 0%, #000 12%, #000 72%, transparent 100%);mask-composite:intersect">
-      <img src="./assets/hero/scene.png" alt="A Nimantran collection photographed on a table: an invitation website on a phone, an envelope with a gold wax seal, a burgundy card, a printed photograph, flowers and cream fabric" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:80% 42%;display:block;animation:nmBreath 26s ease-in-out infinite alternate;transform-origin:70% 40%" />
+<section id="top" data-theme="light" style="position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:clamp(100px,13vh,140px) 0 clamp(40px,6vh,72px);background:#F4E9D9">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(56% 64% at 76% 46%, rgba(255,250,240,.96), rgba(255,250,240,0) 72%), radial-gradient(46% 56% at 0% 100%, rgba(214,180,150,.22), rgba(244,233,217,0) 70%), linear-gradient(180deg, #F7EFE2 0%, #F2E5D2 100%)"></div>
+  <div data-g="hero" style="position:relative;max-width:1360px;width:100%;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(34px,5vw,48px) clamp(28px,4vw,64px)">
+    <div data-herowrap="1" style="position:relative;z-index:2">
+      <p style="{{ h0 }}">Digital invitations, made personal</p>
+      <h1 style="{{ h1 }}">Your story deserves a <em style="font-style:italic;font-weight:400">beautiful</em> beginning.</h1>
+      <p style="{{ h2 }}">From interactive invitation websites to cinematic invitation videos and beautifully designed digital cards, we create invitations that feel like your celebration.</p>
+      <div data-herocta="1" style="{{ h3 }}">
+        <a href="#collection" data-cta="1" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;background:#4A1018;color:#F5ECDE;padding:18px clamp(20px,1.9vw,28px);border-radius:999px;font-size:11px;letter-spacing:.2em;white-space:nowrap;text-transform:uppercase;box-shadow:0 18px 34px -20px rgba(74,16,24,.7);transition:transform .5s cubic-bezier(.22,.7,.2,1), background .5s, box-shadow .5s" style-hover="transform:translateY(-3px);background:#3B0C13;color:#F5ECDE;box-shadow:0 26px 44px -20px rgba(74,16,24,.8)">Explore invitations <span data-arrow="1" style="font-size:15px;transition:transform .5s cubic-bezier(.22,.7,.2,1)">→</span></a>
+        <a href="{{ waCustomHref }}" target="_blank" rel="noopener" data-cta="1" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;border:1px solid rgba(74,16,24,.45);background:rgba(251,246,236,.6);color:#4A1018;padding:18px clamp(20px,1.9vw,28px);border-radius:999px;font-size:11px;letter-spacing:.2em;white-space:nowrap;text-transform:uppercase;transition:transform .5s cubic-bezier(.22,.7,.2,1), background .4s, box-shadow .4s">Create a custom invitation</a>
       </div>
     </div>
-    <div data-heroveil="1" style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(242,229,210,.9) 0%, rgba(242,229,210,.6) 26%, rgba(242,229,210,0) 46%)"></div>
-    <img data-herofg="1" src="./assets/hero/fg-left.png" alt="" style="position:absolute;left:0;bottom:6%;height:72%;width:auto;filter:blur(1.5px);opacity:.9;transform:translate3d(0,calc(var(--sy,0) * -.18px),0)" />
-  </div>
-  <div style="position:absolute;top:-20%;left:-10%;width:60%;height:140%;pointer-events:none;background:linear-gradient(105deg, rgba(255,250,238,0) 30%, rgba(255,250,238,.5) 48%, rgba(255,250,238,0) 66%);animation:nmBeam 18s ease-in-out infinite"></div>
-  <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
-    <span style="position:absolute;top:0;left:44%;width:12px;height:16px;border-radius:70% 0 70% 0;background:rgba(201,110,120,.5);animation:nmFall 22s 1s linear infinite"></span>
-    <span style="position:absolute;top:0;left:62%;width:9px;height:12px;border-radius:70% 0 70% 0;background:rgba(201,110,120,.4);animation:nmFall 27s 8s linear infinite"></span>
-    <span style="position:absolute;top:0;left:20%;width:7px;height:10px;border-radius:70% 0 70% 0;background:rgba(185,154,85,.5);animation:nmFall 25s 14s linear infinite"></span>
-  </div>
-  <div data-g="hero" style="position:relative;flex:0 0 auto;max-width:1360px;width:100%;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:grid;grid-template-columns:1fr;gap:clamp(18px,3vw,40px);align-items:center">
-    <div data-herowrap="1" style="position:relative;z-index:2;opacity:calc(1 - var(--sy,0) / 800);transform:translate3d(0,calc(var(--sy,0) * -.1px),0)">
-      <p style="{{ h0 }}">Digital invitation studio · India</p>
-      <h1 style="{{ h1 }}">Invitations,<br /><em style="font-style:italic;font-weight:400">beautifully</em><br />brought to life.</h1>
-      <p style="{{ h2 }}">Websites, videos and digital invitations designed for the moments worth gathering for.</p>
-      <div style="{{ h3 }}">
-        <a href="#collection" data-cta="1" style="display:inline-flex;align-items:center;gap:14px;background:#4A1018;color:#F5ECDE;padding:19px clamp(20px,2.2vw,32px);border-radius:999px;font-size:11px;letter-spacing:.22em;white-space:nowrap;text-transform:uppercase;box-shadow:0 18px 34px -20px rgba(74,16,24,.7);transition:transform .5s cubic-bezier(.22,.7,.2,1), background .5s, box-shadow .5s" style-hover="transform:translateY(-3px);background:#3B0C13;color:#F5ECDE;box-shadow:0 26px 44px -20px rgba(74,16,24,.8)">Explore invitations <span data-arrow="1" style="font-size:15px;transition:transform .5s cubic-bezier(.22,.7,.2,1)">→</span></a>
-        <a href="{{ waCreateHref }}" target="_blank" rel="noopener" data-cta="1" onClick="{{ createYours }}" style="{{ createStyle }}">Create yours <span data-arrow="1" style="font-size:15px;transition:transform .5s cubic-bezier(.22,.7,.2,1)">→</span></a>
-      </div>
-      <div style="{{ h4 }}"><span style="width:7px;height:7px;border:1px solid #B99A55;transform:rotate(45deg);display:block;flex-shrink:0"></span><span style="{{ heroLine }}"></span></div>
-    </div>
-    <div data-herovis="1" style="position:relative;z-index:1;align-self:stretch;min-height:clamp(300px,46vw,420px)"></div>
-  </div>
-  <div style="position:relative;margin-top:clamp(8px,2vh,24px);padding:clamp(26px,4vh,40px) 0 clamp(16px,3vh,28px)">
-    <div style="position:absolute;left:-15%;right:-15%;top:0;height:200%;border-radius:50% 50% 0 0 / 70px 70px 0 0;background:linear-gradient(180deg,rgba(250,244,234,.86),#F6EDDF 38%);box-shadow:0 -1px 0 rgba(185,154,85,.2);pointer-events:none"></div>
-    <div style="position:relative;max-width:1360px;margin:0 auto;padding:0 clamp(8px,4vw,56px);display:flex;align-items:center;gap:clamp(8px,1.4vw,18px)">
-      <button data-desk="1" onClick="{{ heroRowPrev }}" aria-label="Previous occasions" style="width:48px;height:48px;flex-shrink:0;border-radius:50%;border:1px solid rgba(74,16,24,.4);color:#4A1018;font-size:16px;transition:all .4s" style-hover="background:#4A1018;color:#F5ECDE">‹</button>
-      <div data-occrow="1" data-swipe="1" onMouseEnter="{{ heroPauseOn }}" onMouseLeave="{{ heroPauseOff }}" style="flex:1;min-width:0;display:flex;align-items:flex-end;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:14px 12px 8px">
-        <sc-for list="{{ heroOccList }}" as="o" hint-placeholder-count="8">
-          <div style="display:flex;align-items:flex-end;flex:1 0 auto">
-            <button data-occitem="1" onClick="{{ o.go }}" aria-label="{{ o.name }}" style="{{ o.style }}">
-              <span data-occacc="1" style="{{ o.accStyle }}"></span>
-              <span data-occimg="2" style="display:block;width:clamp(78px,7.2vw,112px);aspect-ratio:108/123;border-radius:999px 999px 2px 2px;overflow:hidden;box-shadow:0 14px 26px -18px rgba(74,16,24,.55)"><img loading="lazy" decoding="async" src="{{ o.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block" /></span>
-              <span data-occlabel="1" style="{{ o.labelStyle }}">{{ o.name }}</span>
-              <span data-occline="1" style="{{ o.lineStyle }}"></span>
-            </button>
-            <span style="{{ o.sepStyle }}"></span>
+    <div data-herovis="1" style="position:relative;z-index:1;min-width:0">
+      <div data-herostage="1" style="position:relative;width:100%;aspect-ratio:100/66">
+        <a data-herolap="1" href="{{ heroLapUrl }}" target="_blank" rel="noopener" aria-label="{{ heroLapLabel }}" style="{{ heroLapStyle }}">
+          <div data-herofloat="1" style="animation:nmDrift 11s ease-in-out infinite">
+            <div style="position:relative;margin:0 5.5%;padding:1.5% 1.5% 2%;background:#1F1B1A;border-radius:clamp(8px,1.1vw,16px) clamp(8px,1.1vw,16px) 2px 2px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.09), 0 44px 60px -44px rgba(74,16,24,.5)">
+              <div data-devscreen="1280" style="position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:3px;background:#EADCC6">
+                <img src="./assets/hero/live/above-the-clouds.jpg" alt="{{ heroLapAlt }}" decoding="async" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
+                <sc-if value="{{ heroLapLive }}" hint-placeholder-val="{{ false }}">
+                  <iframe src="{{ heroLapUrl }}" title="{{ heroLapAlt }}" onLoad="{{ heroLapLoaded }}" tabindex="-1" aria-hidden="true" scrolling="no" allow="autoplay" sandbox="allow-scripts allow-same-origin" width="1280" height="800" style="{{ heroLapFrame }}"></iframe>
+                </sc-if>
+              </div>
+            </div>
+            <div style="position:relative;height:clamp(7px,1vw,14px);border-radius:2px 2px clamp(8px,1vw,14px) clamp(8px,1vw,14px);background:linear-gradient(180deg, #EAE2D6 0%, #C9BEAF 55%, #A99C8D 100%);box-shadow:0 30px 34px -20px rgba(74,40,26,.42)">
+              <span style="position:absolute;left:50%;top:0;width:13%;height:40%;transform:translateX(-50%);border-radius:0 0 8px 8px;background:#B3A798;display:block"></span>
+            </div>
           </div>
-        </sc-for>
+        </a>
+        <a data-herophone="1" href="{{ heroPhoneUrl }}" target="_blank" rel="noopener" aria-label="{{ heroPhoneLabel }}" style="{{ heroPhoneStyle }}">
+          <div data-herofloat="1" style="animation:nmDrift 9s 1.5s ease-in-out infinite">
+            <div style="position:relative;padding:4.2%;background:#1F1B1A;border-radius:15% / 7%;box-shadow:inset 0 0 0 1.5px #BFAF95, 0 34px 50px -26px rgba(74,40,26,.6)">
+              <div data-devscreen="390" style="position:relative;aspect-ratio:390/844;overflow:hidden;border-radius:12% / 5.6%;background:#F1E8D8">
+                <img src="./assets/hero/live/mangal.jpg" alt="{{ heroPhoneAlt }}" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
+                <sc-if value="{{ heroLive }}" hint-placeholder-val="{{ false }}">
+                  <iframe src="{{ heroPhoneUrl }}" title="{{ heroPhoneAlt }}" onLoad="{{ heroPhoneLoaded }}" tabindex="-1" aria-hidden="true" scrolling="no" allow="autoplay" sandbox="allow-scripts allow-same-origin" width="390" height="844" style="{{ heroPhoneFrame }}"></iframe>
+                </sc-if>
+                <span style="position:absolute;left:50%;top:1.6%;width:30%;height:2.9%;transform:translateX(-50%);border-radius:999px;background:#1F1B1A;display:block"></span>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
-      <button data-desk="1" onClick="{{ heroRowNext }}" aria-label="More occasions" style="width:48px;height:48px;flex-shrink:0;border-radius:50%;border:1px solid rgba(74,16,24,.4);color:#4A1018;font-size:16px;transition:all .4s" style-hover="background:#4A1018;color:#F5ECDE">›</button>
+      <p data-herocap="1" style="{{ heroCapStyle }}">
+        <span style="display:inline-flex;align-items:center;gap:9px"><span style="width:6px;height:6px;border-radius:50%;background:#B99A55;display:block"></span>Live invitations</span>
+        <a href="{{ heroLapUrl }}" target="_blank" rel="noopener" style="color:#4A1018;border-bottom:1px solid rgba(74,16,24,.3);padding-bottom:3px" style-hover="color:#8C7347">{{ heroLapName }} ↗</a>
+        <a href="{{ heroPhoneUrl }}" target="_blank" rel="noopener" style="color:#4A1018;border-bottom:1px solid rgba(74,16,24,.3);padding-bottom:3px" style-hover="color:#8C7347">{{ heroPhoneName }} ↗</a>
+      </p>
     </div>
-    <div data-scrollhint="1" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:clamp(14px,2.4vh,24px);opacity:calc(1 - var(--sy,0) / 300)">
-      <span style="font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:#8C7347">Scroll</span>
-      <span style="width:1px;height:26px;background:#B99A55;display:block;animation:nmHint 2.4s ease-in-out infinite"></span>
-    </div>
+    <ul data-herostrip="1" aria-label="What we make" style="{{ heroStripStyle }}">
+      <li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:0 clamp(6px,1.4vw,22px)">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="#8C7347" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="24" height="16" rx="1.5"></rect><path d="M12 27h8M16 22v5"></path></svg>
+        <span style="font-size:clamp(9px,.74vw,10.5px);letter-spacing:.24em;line-height:1.7;text-transform:uppercase;color:#4A3A30">Invitation<br />websites</span>
+      </li>
+      <li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:0 clamp(6px,1.4vw,22px)">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="#8C7347" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="6" width="22" height="20" rx="3"></rect><path d="M13.5 11.5v9l7-4.5z"></path></svg>
+        <span style="font-size:clamp(9px,.74vw,10.5px);letter-spacing:.24em;line-height:1.7;text-transform:uppercase;color:#4A3A30">Invitation<br />videos</span>
+      </li>
+      <li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:0 clamp(6px,1.4vw,22px)">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="#8C7347" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="4" width="16" height="24" rx="2"></rect><path d="M11.5 21l3.5-4 2.5 2.5 2-2 1.5 1.8"></path><circle cx="19" cy="10.5" r="1.4"></circle></svg>
+        <span style="font-size:clamp(9px,.74vw,10.5px);letter-spacing:.24em;line-height:1.7;text-transform:uppercase;color:#4A3A30">Digital<br />cards</span>
+      </li>
+      <li style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:0 clamp(6px,1.4vw,22px)">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="#8C7347" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 5.5l5 5L12 25l-6.5 1.5L7 20z"></path><path d="M18.5 8.5l5 5"></path></svg>
+        <span style="font-size:clamp(9px,.74vw,10.5px);letter-spacing:.24em;line-height:1.7;text-transform:uppercase;color:#4A3A30">Fully<br />customisable</span>
+      </li>
+    </ul>
   </div>
 </section>
-
 
 <section id="more" data-theme="dark" data-prog="sticky" style="position:relative;height:330vh;background:#1D1513">
   <div data-moresticky="1" style="position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center;--w1:clamp(0, calc((.36 - var(--p,0)) * 10), 1);--w2:min(clamp(0, calc((var(--p,0) - .3) * 10), 1), clamp(0, calc((.69 - var(--p,0)) * 10), 1));--w3:clamp(0, calc((var(--p,0) - .63) * 10), 1)">
@@ -940,7 +954,7 @@
 class Component extends DCLogic {
   state = {
     stage: 4, entered: false, introGone: true, scrolled: false, navDark: false, menu: false,
-    active: 0, feat: -1, cat: 0, now: Date.now(), heroOcc: 0, heroPause: false, ctaPress: false, more: 0,
+    active: 0, feat: -1, cat: 0, now: Date.now(), heroOcc: 0, heroPause: false, ctaPress: false, more: 0, heroLive: false, heroLapOn: false, heroPhoneOn: false, pastHero: false,
     demo: null, demoIn: false, demoRect: null, music: false,
     rsvpName: "", rsvpAns: "yes", guests: 2, rsvpDone: false, soon: null,
     blessText: "", blessings: [
@@ -1017,12 +1031,12 @@ class Component extends DCLogic {
     };
     window.addEventListener("mousemove", this.onMove, { passive: true });
     this.timer = setInterval(() => this.setState({ now: Date.now() }), 1000);
-    this.heroTimer = setInterval(() => { if (!this.state.heroPause && this.state.introGone) this.setState({ heroOcc: (this.state.heroOcc + 1) % 8 }); }, 3800);
     this.injectCss();
     this.setupReveal();
     this.setupCursor();
     this.tick();
     this.lockBody();
+    this.heroDevInit();
   }
 
   componentWillUnmount() {
@@ -1032,6 +1046,7 @@ class Component extends DCLogic {
     clearInterval(this.timer); clearInterval(this.scanTimer); clearInterval(this.heroTimer);
     (this.timeouts || []).forEach(clearTimeout);
     if (this.io) this.io.disconnect();
+    if (this.heroRO) this.heroRO.disconnect();
     if (this.cur) { this.cur.forEach((n) => n.remove()); cancelAnimationFrame(this.curRaf); }
     document.body.style.overflow = "";
   }
@@ -1052,6 +1067,8 @@ class Component extends DCLogic {
     const patch = {};
     const sc = sy > 30;
     if (sc !== this.state.scrolled) patch.scrolled = sc;
+    const ph = sy > vh * 0.7;
+    if (ph !== this.state.pastHero) patch.pastHero = ph;
     let dark = false;
     document.querySelectorAll("[data-theme]").forEach((el) => {
       const r = el.getBoundingClientRect();
@@ -1168,15 +1185,30 @@ class Component extends DCLogic {
       [data-occitem="1"]:hover [data-occacc="1"] { opacity: 1 !important; }
       [data-occitem="1"] [data-occimg="2"] { transition: box-shadow .6s; }
       [data-occitem="1"]:hover [data-occimg="2"] { box-shadow: 0 22px 34px -18px rgba(74,16,24,.6) !important; }
-      @media (min-width: 900px) { [data-g="hero"] { grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr) !important; } }
-
-      @media (max-width: 899px) {
-        [data-heroimg="1"] { top: auto !important; bottom: 170px !important; height: 82vw !important; width: 100% !important; right: 0 !important; }
-        [data-heroveil="1"] { background: linear-gradient(180deg, rgba(242,229,210,.96) 0%, rgba(242,229,210,.88) 42%, rgba(242,229,210,0) 66%) !important; }
-        [data-herofg="1"] { height: 46% !important; bottom: 20% !important; opacity: .7 !important; }
-        [data-herovis="1"] { min-height: max(260px, 62vw) !important; }
+      [data-herostrip="1"] li + li { border-left: 1px solid rgba(140,115,71,.3); }
+      [data-herolap="1"]:hover, [data-herophone="1"]:hover { color: inherit; }
+      [data-herolap="1"]:focus-visible, [data-herophone="1"]:focus-visible { outline: 2px solid #8C7347; outline-offset: 6px; border-radius: 12px; }
+      @media (min-width: 900px) {
+        [data-g="hero"] { grid-template-columns: minmax(0,.94fr) minmax(0,1.06fr) !important; grid-template-areas: "copy vis" "strip vis"; align-items: center; }
+        [data-herowrap="1"] { grid-area: copy; align-self: end; }
+        [data-herostrip="1"] { grid-area: strip; align-self: start; justify-self: start; }
+        [data-herovis="1"] { grid-area: vis; }
       }
-      @media (min-width: 900px) { [data-herovis="1"] { min-height: 0 !important; } }
+      @media (max-width: 899px) {
+        [data-herolap="1"] { display: none !important; }
+        [data-herostage="1"] { aspect-ratio: auto !important; display: flex; justify-content: center; }
+        [data-herophone="1"] { position: relative !important; right: auto !important; bottom: auto !important; width: min(58vw, 250px) !important; }
+        [data-herocap="1"] { justify-content: center !important; }
+        [data-herostrip="1"] { width: 100%; max-width: 460px; margin: 0 auto !important; }
+      }
+      @media (max-width: 559px) { [data-herocta="1"] a { flex: 1 1 100%; } }
+      @media (max-width: 559px) { [data-herostrip="1"] li { padding: 0 4px !important; } [data-herostrip="1"] li span { font-size: 8.5px !important; letter-spacing: .16em !important; } }
+      @media (max-width: 479px) {
+        header a[aria-label="Nimantran home"] { gap: 6px !important; min-width: 0; }
+        header a[aria-label="Nimantran home"] > span:first-child img { height: 36px !important; }
+        header a[aria-label="Nimantran home"] > span:last-child img { height: 23px !important; }
+      }
+      @media (prefers-reduced-motion: reduce) { [data-herofloat="1"] { animation: none !important; } }
       @media (max-width: 819px) {
         [data-desk="1"], [data-tagfull="1"] { display: none !important; }
         [data-col="sec"] { height: auto !important; }
@@ -1291,7 +1323,26 @@ class Component extends DCLogic {
     this.scanTimer = setInterval(() => { this.scan(); if (++n > 24) clearInterval(this.scanTimer); }, 350);
   }
 
+  heroDevInit() {
+    if (this.heroDevDone) return;
+    const els = document.querySelectorAll("[data-devscreen]");
+    if (!els.length) return;
+    this.heroDevDone = true;
+    const fit = () => els.forEach((el) => { if (el.clientWidth) el.style.setProperty("--s", (el.clientWidth / Number(el.dataset.devscreen)).toFixed(4)); });
+    fit();
+    if (typeof ResizeObserver !== "undefined") { this.heroRO = new ResizeObserver(fit); els.forEach((el) => this.heroRO.observe(el)); }
+    else window.addEventListener("resize", fit);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (navigator.connection && navigator.connection.saveData) return;
+    const go = () => this.later(() => {
+      this.setState({ heroLive: true });
+      this.later(() => this.setState({ heroLapOn: true, heroPhoneOn: true }), 9000);
+    }, 1200);
+    if (document.readyState === "complete") go(); else window.addEventListener("load", go, { once: true });
+  }
+
   scan() {
+    this.heroDevInit();
     this.colMask();
     this.featInit();
     if (!this.io) return;
@@ -1484,10 +1535,21 @@ class Component extends DCLogic {
       waSoonHref: waLink("Hi Nimantran, please let me know when " + (st.soon === "video" ? "Invitation Videos" : "Digital Cards") + " are ready."),
       igHref,
 
-      h0: rv(0, { margin: "0 0 clamp(18px,3vh,30px)", fontSize: "clamp(12px,1.15vw,17px)", letterSpacing: ".38em", textTransform: "uppercase", color: "#8C7347", fontWeight: 400 }),
-      h1: rv(1, { margin: "0 0 clamp(18px,3vh,28px)", fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, fontSize: "clamp(50px,6.3vw,108px)", lineHeight: .98, letterSpacing: "-.01em", color: "#3B0C13" }),
-      h2: rv(2, { margin: "0 0 clamp(26px,4vh,40px)", maxWidth: "30ch", fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(20px,1.7vw,26px)", lineHeight: 1.4, fontWeight: 500, color: "#3A2A26" }),
-      h3: rv(3, { display: "flex", flexWrap: vw < 560 ? "wrap" : "nowrap", gap: "12px" }),
+      h0: rv(0, { margin: "0 0 clamp(18px,3vh,28px)", fontSize: "clamp(10.5px,.9vw,13px)", letterSpacing: ".34em", textTransform: "uppercase", color: "#8C7347", fontWeight: 400 }),
+      h1: rv(1, { margin: "0 0 clamp(18px,3vh,28px)", fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, fontSize: "clamp(40px,4.5vw,76px)", lineHeight: 1.03, letterSpacing: "-.01em", color: "#3B0C13", maxWidth: "16ch", textWrap: "balance" }),
+      h2: rv(2, { margin: "0 0 clamp(26px,4vh,38px)", maxWidth: "46ch", fontSize: "clamp(15px,1.15vw,17.5px)", lineHeight: 1.7, fontWeight: 400, color: "#4A3A30", textWrap: "pretty" }),
+      h3: rv(3, { display: "flex", flexWrap: "wrap", gap: "12px" }),
+      heroStripStyle: rv(4, { listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", maxWidth: "520px" }),
+      heroLapStyle: { position: "absolute", left: 0, top: "3%", width: "88%", display: "block", color: "inherit", opacity: ent ? 1 : 0, transform: ent ? "none" : "translateY(30px)", transition: "opacity 1.5s " + E + " .55s, transform 1.8s " + E + " .55s" },
+      heroPhoneStyle: { position: "absolute", right: 0, bottom: 0, width: "22.5%", display: "block", color: "inherit", zIndex: 2, opacity: ent ? 1 : 0, transform: ent ? "none" : "translateY(30px)", transition: "opacity 1.5s " + E + " .8s, transform 1.8s " + E + " .8s" },
+      heroCapStyle: rv(6, { display: "flex", flexWrap: "wrap", alignItems: "center", gap: "10px clamp(16px,2vw,28px)", margin: "clamp(18px,2.4vw,28px) 0 0", fontSize: "10px", letterSpacing: ".24em", textTransform: "uppercase", color: "#8C7347" }),
+      heroLapUrl: tpls[0].url, heroLapName: tpls[0].name, heroLapAlt: tpls[0].name + " — a live Nimantran invitation website", heroLapLabel: "Open the " + tpls[0].name + " invitation in a new tab",
+      heroPhoneUrl: tpls[3].url, heroPhoneName: tpls[3].name, heroPhoneAlt: tpls[3].name + " — a live Nimantran invitation on mobile", heroPhoneLabel: "Open the " + tpls[3].name + " invitation in a new tab",
+      heroLive: st.heroLive, heroLapLive: st.heroLive && vw >= 900,
+      heroLapLoaded: () => this.later(() => this.setState({ heroLapOn: true }), 500),
+      heroPhoneLoaded: () => this.later(() => this.setState({ heroPhoneOn: true }), 500),
+      heroLapFrame: { position: "absolute", left: 0, top: 0, width: "1280px", height: "800px", border: 0, transformOrigin: "0 0", transform: "scale(var(--s,.4))", pointerEvents: "none", opacity: st.heroLapOn ? 1 : 0, transition: "opacity 1.4s ease" },
+      heroPhoneFrame: { position: "absolute", left: 0, top: 0, width: "390px", height: "844px", border: 0, transformOrigin: "0 0", transform: "scale(var(--s,.4))", pointerEvents: "none", opacity: st.heroPhoneOn ? 1 : 0, transition: "opacity 1.4s ease" },
       h4: rv(4, { display: "flex", alignItems: "center", gap: "4px", marginTop: "clamp(18px,3vh,28px)", width: "110px" }),
       heroLine: { flex: 1, height: "1px", background: "#B99A55", display: "block", transformOrigin: "left", transform: ent ? "scaleX(1)" : "scaleX(0)", transition: "transform 1.6s " + E + " 1.4s" },
       heroVis: { position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none", overflow: "hidden", opacity: ent ? 1 : 0, transform: ent ? "none" : "translateX(30px) scale(1.02)", transition: "opacity 1.8s " + E + " .4s, transform 2.2s " + E + " .4s" },
@@ -1565,7 +1627,7 @@ class Component extends DCLogic {
       soonTitle: st.soon === "video" ? "Invitation Videos" : "Digital Cards",
       closeSoon: () => this.setState({ soon: null }),
 
-      tagsWrap: { position: "fixed", right: 0, bottom: "calc(clamp(14px,3vw,30px) + env(safe-area-inset-bottom))", zIndex: 70, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "8px", opacity: ent && st.demo === null && !st.menu && !st.soon ? 1 : 0, transform: ent ? "none" : "translateX(30px)", pointerEvents: ent && st.demo === null ? "auto" : "none", transition: "opacity .8s " + E + " 1.6s, transform .8s " + E + " 1.6s" },
+      tagsWrap: { position: "fixed", right: 0, bottom: "calc(clamp(14px,3vw,30px) + env(safe-area-inset-bottom))", zIndex: 70, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "8px", opacity: ent && st.pastHero && st.demo === null && !st.menu && !st.soon ? 1 : 0, transform: ent && st.pastHero ? "none" : "translateX(30px)", pointerEvents: ent && st.pastHero && st.demo === null ? "auto" : "none", transition: "opacity .8s " + E + ", transform .8s " + E },
 
       demoOpen: st.demo !== null,
       demoIsUrl: !!d.url, demoIsBuilt: !d.url, demoUrl: d.url,
