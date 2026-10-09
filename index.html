@@ -209,9 +209,6 @@
   <img src="./assets/col/fl-left2.png" alt="" style="position:absolute;left:0;top:14%;height:82%;width:auto;pointer-events:none;opacity:.95;animation:nmBreath 18s ease-in-out infinite alternate" />
   <img src="./assets/col/fl-tr2.png" alt="" style="position:absolute;right:0;top:0;width:clamp(70px,7vw,110px);height:auto;pointer-events:none;animation:nmBreath 22s ease-in-out infinite alternate" />
   <img src="./assets/col/fl-bottom2.png" alt="" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;min-height:90px;object-fit:cover;pointer-events:none" />
-  <span style="position:absolute;top:0;left:22%;width:9px;height:12px;border-radius:70% 0 70% 0;background:rgba(200,120,130,.45);animation:nmFall 26s linear infinite;pointer-events:none"></span>
-  <span style="position:absolute;top:0;left:64%;width:7px;height:10px;border-radius:70% 0 70% 0;background:rgba(185,154,85,.5);animation:nmFall 32s 6s linear infinite;pointer-events:none"></span>
-  <span style="position:absolute;top:0;left:86%;width:8px;height:11px;border-radius:70% 0 70% 0;background:rgba(240,228,210,.9);animation:nmFall 28s 12s linear infinite;pointer-events:none"></span>
   <div style="position:relative;max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,64px)">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px 40px;margin-bottom:clamp(40px,5vw,64px)">
       <div style="max-width:640px">
@@ -1146,6 +1143,12 @@ class Component extends DCLogic {
       [data-tplbtn="1"]:hover [data-tplshine="1"] { background-position: -20% 0 !important; }
       [data-colgrid="1"]:has([data-tplbtn="1"]:hover) [data-colcard="1"]:not(:has([data-tplbtn="1"]:hover)) { opacity: .62; transition: opacity .8s; }
       [data-colcard="1"] { transition: opacity .8s; }
+      #collection, #collection * { animation: none !important; transition: none !important; }
+      #collection [data-reveal] { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+      #collection [data-colmask="1"] { clip-path: inset(0 0 0 0) !important; }
+      #collection [data-tplbtn="1"]:hover [data-tplart="1"] { transform: none !important; filter: drop-shadow(0 24px 30px rgba(90,50,30,.16)) !important; }
+      #collection [data-tplbtn="1"]:hover [data-tplshine="1"] { background-position: 120% 0 !important; }
+      #collection [data-colgrid="1"] [data-colcard="1"] { opacity: 1 !important; }
       @media (max-width: 1099px) { [data-colgrid="1"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; row-gap: 64px !important; } }
       @media (max-width: 679px) { [data-colgrid="1"] { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 18px !important; margin: 0 calc(-1 * clamp(20px,4vw,64px)); padding: 6px 9vw 20px; scrollbar-width: none; } [data-colgrid="1"]::-webkit-scrollbar { display: none; } [data-colcard="1"] { flex: 0 0 80vw; scroll-snap-align: center; } }
       @media (prefers-reduced-motion: reduce) { [data-colcard="1"] * { animation: none !important; } }
