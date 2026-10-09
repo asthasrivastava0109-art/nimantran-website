@@ -96,14 +96,14 @@
       <a data-scenedev="lap" href="{{ heroLapUrl }}" target="_blank" rel="noopener" aria-label="{{ heroLapLabel }}" title="{{ heroLapLabel }}" style="position:absolute;left:0;top:0;width:1280px;height:800px;overflow:hidden;border-radius:10px;transform-origin:0 0;transform:matrix3d(0.39266652,0.0083365679,0,-3.8796549e-05,-0.062405602,0.43321112,0,-3.2917659e-05,0,0,1,0,232,187,0,1);background:#EADCC6;display:block">
         <img src="./assets/hero/live/above-the-clouds.jpg" alt="{{ heroLapAlt }}" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
         <sc-if value="{{ heroLapLive }}" hint-placeholder-val="{{ false }}">
-          <iframe src="{{ heroLapUrl }}" title="{{ heroLapAlt }}" onLoad="{{ heroLapLoaded }}" tabindex="-1" aria-hidden="true" scrolling="no" allow="autoplay" sandbox="allow-scripts allow-same-origin" width="1280" height="800" style="{{ heroSceneFrame }}"></iframe>
+          <iframe src="./live/above-the-clouds.html" title="{{ heroLapAlt }}" onLoad="{{ heroLapLoaded }}" tabindex="-1" aria-hidden="true" allow="autoplay" sandbox="allow-scripts allow-same-origin" width="1280" height="800" style="{{ heroSceneFrame }}"></iframe>
         </sc-if>
       </a>
       <img src="./assets/hero/scene-devices.jpg" alt="" aria-hidden="true" width="972" height="846" decoding="async" style="position:absolute;left:0;top:0;width:972px;height:846px;max-width:none;display:block;pointer-events:none;clip-path:polygon(758px 295px, 972px 300px, 972px 846px, 700px 846px, 713px 690px, 740.5px 315px, 742px 307px, 745.5px 300.5px, 751px 296.5px)" />
       <a data-scenedev="phone" href="{{ heroPhoneUrl }}" target="_blank" rel="noopener" aria-label="{{ heroPhoneLabel }}" title="{{ heroPhoneLabel }}" style="position:absolute;left:0;top:0;width:390px;height:844px;overflow:hidden;border-radius:52px;transform-origin:0 0;transform:matrix3d(0.39526858,0.017976783,0,-1.6452064e-05,-0.075782019,0.40440257,0,-5.7370955e-05,0,0,1,0,751,301,0,1);background:#F1E8D8;display:block">
         <img src="./assets/hero/live/mangal.jpg" alt="{{ heroPhoneAlt }}" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
         <sc-if value="{{ heroLapLive }}" hint-placeholder-val="{{ false }}">
-          <iframe src="{{ heroPhoneUrl }}" title="{{ heroPhoneAlt }}" onLoad="{{ heroPhoneLoaded }}" tabindex="-1" aria-hidden="true" scrolling="no" allow="autoplay" sandbox="allow-scripts allow-same-origin" width="390" height="844" style="{{ heroSceneFrame2 }}"></iframe>
+          <iframe src="./live/mangal.html" title="{{ heroPhoneAlt }}" onLoad="{{ heroPhoneLoaded }}" tabindex="-1" aria-hidden="true" allow="autoplay" sandbox="allow-scripts allow-same-origin" width="390" height="844" style="{{ heroSceneFrame2 }}"></iframe>
         </sc-if>
         <span style="position:absolute;left:50%;top:0;width:128px;height:27px;transform:translateX(-50%);border-radius:0 0 17px 17px;background:#17120F;display:block"></span>
       </a>
@@ -127,7 +127,7 @@
               <div data-devscreen="390" style="position:relative;aspect-ratio:390/844;overflow:hidden;border-radius:12% / 5.6%;background:#F1E8D8">
                 <img src="./assets/hero/live/mangal.jpg" alt="{{ heroPhoneAlt }}" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
                 <sc-if value="{{ heroMobLive }}" hint-placeholder-val="{{ false }}">
-                  <iframe src="{{ heroPhoneUrl }}" title="{{ heroPhoneAlt }}" onLoad="{{ heroPhoneLoaded }}" tabindex="-1" aria-hidden="true" scrolling="no" allow="autoplay" sandbox="allow-scripts allow-same-origin" width="390" height="844" style="{{ heroPhoneFrame }}"></iframe>
+                  <iframe src="./live/mangal.html" title="{{ heroPhoneAlt }}" onLoad="{{ heroPhoneLoaded }}" tabindex="-1" aria-hidden="true" allow="autoplay" sandbox="allow-scripts allow-same-origin" width="390" height="844" style="{{ heroPhoneFrame }}"></iframe>
                 </sc-if>
                 <span style="position:absolute;left:50%;top:1.6%;width:30%;height:2.9%;transform:translateX(-50%);border-radius:999px;background:#1F1B1A;display:block"></span>
               </div>
@@ -1051,6 +1051,8 @@ class Component extends DCLogic {
     (this.timeouts || []).forEach(clearTimeout);
     if (this.io) this.io.disconnect();
     if (this.heroRO) this.heroRO.disconnect();
+    if (this.heroVisIO) this.heroVisIO.disconnect();
+    this.heroRun = {};
     if (this.cur) { this.cur.forEach((n) => n.remove()); cancelAnimationFrame(this.curRaf); }
     document.body.style.overflow = "";
   }
@@ -1347,8 +1349,67 @@ class Component extends DCLogic {
     else window.addEventListener("resize", fit);
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (navigator.connection && navigator.connection.saveData) return;
+    if (typeof IntersectionObserver !== "undefined") {
+      this.heroVisIO = new IntersectionObserver((es) => es.forEach((e) => { this.heroVisible = e.isIntersecting; }), { threshold: 0.05 });
+      this.heroVisIO.observe(sec);
+    }
     this.setState({ heroLive: true });
     this.later(() => this.setState({ heroLapOn: true, heroPhoneOn: true }), 8000);
+  }
+
+  // Plays an embedded invitation by itself: opens it, scrolls through it, then starts over.
+  heroDrive(frame, key) {
+    const cfg = key === "lap"
+      ? { on: "heroLapOn", hold: 2600, afterOpen: 1500, speed: 120, find: (d) => d.querySelector('button[aria-label="Enter the journey"]') }
+      : { on: "heroPhoneOn", hold: 2600, afterOpen: 4500, speed: 100, find: (d) => Array.from(d.querySelectorAll("div")).find((x) => x.style.position === "fixed" && x.style.zIndex === "80") };
+    let win, doc;
+    try { win = frame.contentWindow; doc = win.document; } catch (e) { return; }
+    if (!doc || !doc.body) return;
+    try {
+      const proto = win.HTMLMediaElement.prototype, play = proto.play;
+      proto.play = function () { if (this instanceof win.HTMLAudioElement) return Promise.resolve(); this.muted = true; return play.call(this); };
+      const st = doc.createElement("style");
+      st.textContent = "html{scrollbar-width:none!important}::-webkit-scrollbar{display:none!important}";
+      doc.head.appendChild(st);
+    } catch (e) {}
+    this.heroRun = this.heroRun || {};
+    const id = (this.heroRun[key] = (this.heroRun[key] || 0) + 1);
+    const alive = () => this.heroRun[key] === id && frame.isConnected;
+    const wait = (ms) => new Promise((r) => this.later(r, ms));
+    const settle = async () => {
+      let prev = -1, same = 0;
+      for (let i = 0; i < 100 && same < 4; i++) { await wait(200); const y = win.scrollY; same = Math.abs(y - prev) < 1 ? same + 1 : 0; prev = y; }
+    };
+    (async () => {
+      try {
+        await wait(cfg.hold);
+        if (!alive()) return;
+        const opener = cfg.find(doc);
+        if (opener) opener.click();
+        await wait(cfg.afterOpen);
+        await settle();
+        if (!alive()) return;
+        doc.documentElement.style.scrollBehavior = "auto";
+        const root = doc.scrollingElement || doc.documentElement;
+        let y = win.scrollY, last = performance.now();
+        await new Promise((done) => {
+          const step = (now) => {
+            if (!alive()) return done();
+            const dt = Math.min(64, now - last); last = now;
+            if (this.heroVisible !== false) { y += (cfg.speed * dt) / 1000; win.scrollTo(0, y); }
+            if (y >= root.scrollHeight - win.innerHeight - 2) return done();
+            requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+        if (!alive()) return;
+        await wait(2400);
+        if (!alive()) return;
+        this.setState({ [cfg.on]: false });
+        await wait(1200);
+        if (alive()) win.location.reload();
+      } catch (e) {}
+    })();
   }
 
   scan() {
@@ -1558,8 +1619,8 @@ class Component extends DCLogic {
       heroSceneStyle: { position: "absolute", inset: 0, zIndex: 0, overflow: "hidden", opacity: ent ? 1 : 0, transform: ent ? "none" : "translateY(22px)", transition: "opacity 1.6s " + E + " .25s, transform 2s " + E + " .25s" },
       heroSceneFrame: { position: "absolute", left: 0, top: 0, width: "1280px", height: "800px", border: 0, pointerEvents: "none", opacity: st.heroLapOn ? 1 : 0, transition: "opacity 1.1s ease" },
       heroSceneFrame2: { position: "absolute", left: 0, top: 0, width: "390px", height: "844px", border: 0, pointerEvents: "none", opacity: st.heroPhoneOn ? 1 : 0, transition: "opacity 1.1s ease" },
-      heroLapLoaded: () => this.later(() => this.setState({ heroLapOn: true }), 250),
-      heroPhoneLoaded: () => this.later(() => this.setState({ heroPhoneOn: true }), 250),
+      heroLapLoaded: (e) => { const f = e.currentTarget; this.later(() => this.setState({ heroLapOn: true }), 250); this.heroDrive(f, "lap"); },
+      heroPhoneLoaded: (e) => { const f = e.currentTarget; this.later(() => this.setState({ heroPhoneOn: true }), 250); this.heroDrive(f, "phone"); },
       heroPhoneFrame: { position: "absolute", left: 0, top: 0, width: "390px", height: "844px", border: 0, transformOrigin: "0 0", transform: "scale(var(--s,.4))", pointerEvents: "none", opacity: st.heroPhoneOn ? 1 : 0, transition: "opacity 1.4s ease" },
       h4: rv(4, { display: "flex", alignItems: "center", gap: "4px", marginTop: "clamp(18px,3vh,28px)", width: "110px" }),
       heroLine: { flex: 1, height: "1px", background: "#B99A55", display: "block", transformOrigin: "left", transform: ent ? "scaleX(1)" : "scaleX(0)", transition: "transform 1.6s " + E + " 1.4s" },
