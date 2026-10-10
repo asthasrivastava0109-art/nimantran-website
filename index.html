@@ -219,12 +219,7 @@
   </div>
 </section>
 
-<section id="collection" data-theme="light" style="position:relative;overflow:hidden;background:#F2E2D0;padding:clamp(90px,11vw,130px) 0 clamp(110px,12vw,170px)">
-  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 50% at 45% 20%, rgba(255,246,232,.85), rgba(255,246,232,0) 70%), radial-gradient(50% 40% at 80% 90%, rgba(214,180,150,.25), rgba(242,226,208,0) 70%)"></div>
-  <div style="position:absolute;top:-30%;left:-20%;width:70%;height:160%;pointer-events:none;background:linear-gradient(105deg, rgba(255,250,238,0) 30%, rgba(255,250,238,.45) 48%, rgba(255,250,238,0) 66%)"></div>
-  <img src="./assets/col/fl-left2.png" alt="" style="position:absolute;left:0;top:14%;height:82%;width:auto;pointer-events:none;opacity:.95" />
-  <img src="./assets/col/fl-tr2.png" alt="" style="position:absolute;right:0;top:0;width:clamp(70px,7vw,110px);height:auto;pointer-events:none" />
-  <img src="./assets/col/fl-bottom2.png" alt="" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;min-height:90px;object-fit:cover;pointer-events:none" />
+<section id="collection" data-theme="light" style="position:relative;overflow:hidden;background:linear-gradient(180deg, #F7EADA 0%, #F4DFC9 34%, #F3DCC6 78%, #F1DAC5 100%);padding:clamp(80px,9vw,120px) 0 clamp(80px,9vw,120px)">
   <div style="position:relative;max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,64px)">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px 40px;margin-bottom:clamp(40px,5vw,64px)">
       <div style="max-width:640px">
@@ -239,78 +234,30 @@
       </div>
     </div>
     <div data-colgrid="1" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.6vw,24px)">
-      <div data-colcard="1" style="display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0">
-        <p data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.06em;color:#4A3A30">01</p>
-        <h3 data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(28px,2.5vw,38px);line-height:1.05;color:#5E7BA0;white-space:nowrap">Above the Clouds</h3>
-        <p data-reveal="1" style="margin:0 0 clamp(16px,2vw,24px);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#5E7BA0">Dreamy · Pastel sky</p>
-        <div style="width:100%">
-          <button data-tplbtn="1" data-tplobj="1" onClick="{{ open0 }}" aria-label="View Above the Clouds live invitation" style="position:relative;display:block;width:100%;aspect-ratio:357/440;padding:0;border:0;background:none;cursor:pointer;perspective:1200px">
-            <div data-colmask="1" style="position:absolute;inset:0;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
-              <div data-tplart="1" style="position:absolute;inset:0;transition:transform 1.2s cubic-bezier(.22,.7,.2,1), filter 1.2s;transform-origin:50% 100%;filter:drop-shadow(0 24px 30px rgba(90,50,30,.16))">
-                <img src="./assets/col/card-1.png" alt="Above the Clouds invitation" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
-                <div data-tplshine="1" style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,250,240,0) 35%, rgba(255,250,240,.38) 50%, rgba(255,250,240,0) 65%);background-size:250% 100%;background-position:120% 0;transition:background-position 1.4s cubic-bezier(.22,.7,.2,1);pointer-events:none;mix-blend-mode:soft-light"></div>
-              </div>
+      <sc-for list="{{ colCards }}" as="c" hint-placeholder-count="4">
+        <div data-colcard="1" style="display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0">
+          <p style="{{ c.numStyle }}">{{ c.num }}</p>
+          <h3 style="{{ c.nameStyle }}">{{ c.name }}</h3>
+          <p style="{{ c.moodStyle }}">{{ c.mood }}</p>
+          <div data-colscene="1" style="{{ c.sceneStyle }}">
+            <img src="{{ c.tile }}" alt="" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;display:block" />
+            <div data-colphone="1" data-devscreen="390" role="button" tabindex="0" onClick="{{ c.play }}" onKeyDown="{{ c.key }}" aria-label="{{ c.playLabel }}" style="{{ c.screenStyle }}">
+              <img src="{{ c.poster }}" alt="{{ c.alt }}" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
+              <sc-if value="{{ c.playing }}" hint-placeholder-val="{{ false }}">
+                <iframe src="{{ c.src }}" title="{{ c.alt }}" onLoad="{{ c.loaded }}" tabindex="-1" allow="autoplay" width="390" height="844" style="{{ c.frameStyle }}"></iframe>
+              </sc-if>
+              <span style="position:absolute;left:50%;top:0;width:44%;height:3.6%;transform:translateX(-50%);border-radius:0 0 9px 9px;background:#15110F;display:block;pointer-events:none"></span>
+              <sc-if value="{{ c.idle }}" hint-placeholder-val="{{ true }}">
+                <span data-colplay="1" style="position:absolute;left:50%;top:66%;width:30%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:rgba(251,246,236,.9);box-shadow:0 0 0 1px rgba(140,115,71,.7), 0 10px 22px -10px rgba(40,20,10,.6);display:grid;place-items:center;pointer-events:none"><svg viewBox="0 0 24 24" width="42%" height="42%" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#6E4A1E"></path></svg></span>
+              </sc-if>
+              <sc-if value="{{ c.playing }}" hint-placeholder-val="{{ false }}">
+                <button onClick="{{ c.stop }}" aria-label="Stop preview" style="position:absolute;right:5%;top:5%;width:22%;aspect-ratio:1;border-radius:50%;background:rgba(21,17,15,.72);color:#F5ECDE;font-size:13px;line-height:1;display:grid;place-items:center">×</button>
+              </sc-if>
             </div>
-            <span data-tplhint="1" style="position:absolute;left:50%;top:50%;width:104px;height:104px;border-radius:50%;background:rgba(250,243,233,.94);display:grid;place-items:center;text-align:center;font-size:9px;letter-spacing:.22em;line-height:1.6;text-transform:uppercase;color:#5E7BA0;opacity:0;transform:translate(-50%,-50%) scale(.8);transition:all .6s cubic-bezier(.22,.7,.2,1);pointer-events:none;box-shadow:0 14px 30px -12px rgba(60,30,20,.35)">View live<br />invitation</span>
-          </button>
+          </div>
+          <button onClick="{{ c.open }}" style="{{ c.btnStyle }}">View invitation <span style="font-size:13px">↗</span></button>
         </div>
-        <button onClick="{{ open0 }}" data-reveal="1" style="display:inline-flex;align-items:center;gap:12px;margin-top:clamp(14px,1.6vw,22px);background:rgba(250,243,233,.5);color:#4A2A22;border:1px solid rgba(94,60,50,.45);padding:17px clamp(22px,2.2vw,32px);border-radius:999px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;transition:all .5s cubic-bezier(.22,.7,.2,1)" style-hover="background:#5E7BA0;color:#F5ECDE;border:1px solid #5E7BA0">View invitation <span style="font-size:13px">↗</span></button>
-        <a href="{{ wa0 }}" target="_blank" rel="noopener" style="margin-top:12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6B5444;border-bottom:1px solid rgba(107,84,68,.3);padding-bottom:3px" style-hover="color:#5E7BA0;border-bottom:1px solid #5E7BA0">Customize this</a>
-      </div>
-      <div data-colcard="1" style="display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0">
-        <p data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.06em;color:#4A3A30">02</p>
-        <h3 data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(28px,2.5vw,38px);line-height:1.05;color:#5A1420;white-space:nowrap">The Royal Chapter</h3>
-        <p data-reveal="1" style="margin:0 0 clamp(16px,2vw,24px);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#5A1420">Regal · Heritage</p>
-        <div style="width:100%">
-          <button data-tplbtn="1" data-tplobj="1" onClick="{{ open1 }}" aria-label="View The Royal Chapter live invitation" style="position:relative;display:block;width:100%;aspect-ratio:357/440;padding:0;border:0;background:none;cursor:pointer;perspective:1200px">
-            <div data-colmask="1" style="position:absolute;inset:0;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
-              <div data-tplart="1" style="position:absolute;inset:0;transition:transform 1.2s cubic-bezier(.22,.7,.2,1), filter 1.2s;transform-origin:50% 100%;filter:drop-shadow(0 24px 30px rgba(90,50,30,.16))">
-                <img src="./assets/col/card-2.png" alt="The Royal Chapter invitation" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
-                <div data-tplshine="1" style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,250,240,0) 35%, rgba(255,250,240,.38) 50%, rgba(255,250,240,0) 65%);background-size:250% 100%;background-position:120% 0;transition:background-position 1.4s cubic-bezier(.22,.7,.2,1);pointer-events:none;mix-blend-mode:soft-light"></div>
-              </div>
-            </div>
-            <span data-tplhint="1" style="position:absolute;left:50%;top:50%;width:104px;height:104px;border-radius:50%;background:rgba(250,243,233,.94);display:grid;place-items:center;text-align:center;font-size:9px;letter-spacing:.22em;line-height:1.6;text-transform:uppercase;color:#5A1420;opacity:0;transform:translate(-50%,-50%) scale(.8);transition:all .6s cubic-bezier(.22,.7,.2,1);pointer-events:none;box-shadow:0 14px 30px -12px rgba(60,30,20,.35)">View live<br />invitation</span>
-          </button>
-        </div>
-        <button onClick="{{ open1 }}" data-reveal="1" style="display:inline-flex;align-items:center;gap:12px;margin-top:clamp(14px,1.6vw,22px);background:#5A1420;color:#F5ECDE;border:1px solid #5A1420;padding:17px clamp(22px,2.2vw,32px);border-radius:999px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;transition:all .5s cubic-bezier(.22,.7,.2,1)" style-hover="background:#4A1018;color:#F5ECDE;border:1px solid #4A1018">View invitation <span style="font-size:13px">↗</span></button>
-        <a href="{{ wa1 }}" target="_blank" rel="noopener" style="margin-top:12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6B5444;border-bottom:1px solid rgba(107,84,68,.3);padding-bottom:3px" style-hover="color:#5A1420;border-bottom:1px solid #5A1420">Customize this</a>
-      </div>
-      <div data-colcard="1" style="display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0">
-        <p data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.06em;color:#4A3A30">03</p>
-        <h3 data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(28px,2.5vw,38px);line-height:1.05;color:#3E5B3C;white-space:nowrap">A Story in Blue</h3>
-        <p data-reveal="1" style="margin:0 0 clamp(16px,2vw,24px);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#3E5B3C">Garden · Minimal</p>
-        <div style="width:100%">
-          <button data-tplbtn="1" data-tplobj="1" onClick="{{ open2 }}" aria-label="View A Story in Blue live invitation" style="position:relative;display:block;width:100%;aspect-ratio:357/440;padding:0;border:0;background:none;cursor:pointer;perspective:1200px">
-            <div data-colmask="1" style="position:absolute;inset:0;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
-              <div data-tplart="1" style="position:absolute;inset:0;transition:transform 1.2s cubic-bezier(.22,.7,.2,1), filter 1.2s;transform-origin:50% 100%;filter:drop-shadow(0 24px 30px rgba(90,50,30,.16))">
-                <img src="./assets/col/card-3.png" alt="A Story in Blue invitation" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
-                <div data-tplshine="1" style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,250,240,0) 35%, rgba(255,250,240,.38) 50%, rgba(255,250,240,0) 65%);background-size:250% 100%;background-position:120% 0;transition:background-position 1.4s cubic-bezier(.22,.7,.2,1);pointer-events:none;mix-blend-mode:soft-light"></div>
-              </div>
-            </div>
-            <span data-tplhint="1" style="position:absolute;left:50%;top:50%;width:104px;height:104px;border-radius:50%;background:rgba(250,243,233,.94);display:grid;place-items:center;text-align:center;font-size:9px;letter-spacing:.22em;line-height:1.6;text-transform:uppercase;color:#3E5B3C;opacity:0;transform:translate(-50%,-50%) scale(.8);transition:all .6s cubic-bezier(.22,.7,.2,1);pointer-events:none;box-shadow:0 14px 30px -12px rgba(60,30,20,.35)">View live<br />invitation</span>
-          </button>
-        </div>
-        <button onClick="{{ open2 }}" data-reveal="1" style="display:inline-flex;align-items:center;gap:12px;margin-top:clamp(14px,1.6vw,22px);background:rgba(250,243,233,.5);color:#2F3E2C;border:1px solid rgba(62,91,60,.5);padding:17px clamp(22px,2.2vw,32px);border-radius:999px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;transition:all .5s cubic-bezier(.22,.7,.2,1)" style-hover="background:#3E5B3C;color:#F5ECDE;border:1px solid #3E5B3C">View invitation <span style="font-size:13px">↗</span></button>
-        <a href="{{ wa2 }}" target="_blank" rel="noopener" style="margin-top:12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6B5444;border-bottom:1px solid rgba(107,84,68,.3);padding-bottom:3px" style-hover="color:#3E5B3C;border-bottom:1px solid #3E5B3C">Customize this</a>
-      </div>
-      <div data-colcard="1" style="display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0">
-        <p data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.06em;color:#4A3A30">04</p>
-        <h3 data-reveal="1" style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(28px,2.5vw,38px);line-height:1.05;color:#1C2342;white-space:nowrap">Mangal</h3>
-        <p data-reveal="1" style="margin:0 0 clamp(16px,2vw,24px);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#1C2342">Moonlit · Night</p>
-        <div style="width:100%">
-          <button data-tplbtn="1" data-tplobj="1" onClick="{{ open3 }}" aria-label="View Mangal live invitation" style="position:relative;display:block;width:100%;aspect-ratio:357/440;padding:0;border:0;background:none;cursor:pointer;perspective:1200px">
-            <div data-colmask="1" style="position:absolute;inset:0;clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
-              <div data-tplart="1" style="position:absolute;inset:0;transition:transform 1.2s cubic-bezier(.22,.7,.2,1), filter 1.2s;transform-origin:50% 100%;filter:drop-shadow(0 24px 30px rgba(90,50,30,.16))">
-                <img src="./assets/col/card-4.png" alt="Mangal invitation" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" />
-                <div data-tplshine="1" style="position:absolute;inset:0;background:linear-gradient(115deg, rgba(255,250,240,0) 35%, rgba(255,250,240,.38) 50%, rgba(255,250,240,0) 65%);background-size:250% 100%;background-position:120% 0;transition:background-position 1.4s cubic-bezier(.22,.7,.2,1);pointer-events:none;mix-blend-mode:soft-light"></div>
-              </div>
-            </div>
-            <span data-tplhint="1" style="position:absolute;left:50%;top:50%;width:104px;height:104px;border-radius:50%;background:rgba(250,243,233,.94);display:grid;place-items:center;text-align:center;font-size:9px;letter-spacing:.22em;line-height:1.6;text-transform:uppercase;color:#1C2342;opacity:0;transform:translate(-50%,-50%) scale(.8);transition:all .6s cubic-bezier(.22,.7,.2,1);pointer-events:none;box-shadow:0 14px 30px -12px rgba(60,30,20,.35)">View live<br />invitation</span>
-          </button>
-        </div>
-        <button onClick="{{ open3 }}" data-reveal="1" style="display:inline-flex;align-items:center;gap:12px;margin-top:clamp(14px,1.6vw,22px);background:#1C2342;color:#F5ECDE;border:1px solid #1C2342;padding:17px clamp(22px,2.2vw,32px);border-radius:999px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;transition:all .5s cubic-bezier(.22,.7,.2,1)" style-hover="background:#0F1530;color:#F5ECDE;border:1px solid #0F1530">View invitation <span style="font-size:13px">↗</span></button>
-        <a href="{{ wa3 }}" target="_blank" rel="noopener" style="margin-top:12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6B5444;border-bottom:1px solid rgba(107,84,68,.3);padding-bottom:3px" style-hover="color:#1C2342;border-bottom:1px solid #1C2342">Customize this</a>
-      </div>
+      </sc-for>
     </div>
     <div data-colnav="1" style="display:none;align-items:center;justify-content:center;gap:18px;margin-top:4px">
       <button onClick="{{ colPrev }}" aria-label="Previous design" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(74,16,24,.5);color:#4A1018;font-size:18px;line-height:1;display:grid;place-items:center">‹</button>
@@ -969,7 +916,7 @@
 class Component extends DCLogic {
   state = {
     stage: 4, entered: false, introGone: true, scrolled: false, navDark: false, menu: false,
-    active: 0, feat: -1, cat: 0, now: Date.now(), heroOcc: 0, heroPause: false, ctaPress: false, more: 0, colIdx: 0, fmtIdx: 0, heroLive: false, heroLapOn: false, heroPhoneOn: false, pastHero: false,
+    active: 0, feat: -1, cat: 0, now: Date.now(), heroOcc: 0, heroPause: false, ctaPress: false, more: 0, colIdx: 0, fmtIdx: 0, colPlay: null, heroLive: false, heroLapOn: false, heroPhoneOn: false, pastHero: false,
     demo: null, demoIn: false, demoRect: null, music: false,
     rsvpName: "", rsvpAns: "yes", guests: 2, rsvpDone: false, soon: null,
     blessText: "", blessings: [
@@ -1249,7 +1196,16 @@ class Component extends DCLogic {
         [data-colnote="1"] > div:first-child { display: none !important; }
         [data-colnav="1"], [data-fmtnav="1"] { display: flex !important; }
       }
-      [data-tplart="1"] > * { border-radius: 50% 50% 14px 14px / 38% 38% 14px 14px; }
+      [data-colscene="1"] { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%), linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%), linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%); mask-composite: intersect; }
+      [data-colphone="1"] { cursor: pointer; }
+      [data-colphone="1"]:focus-visible { outline: 2px solid #8C7347; outline-offset: 3px; }
+      [data-colphone="1"]:hover [data-colplay="1"] { background: #FBF6EC !important; }
+      @media (min-width: 1100px) {
+        [data-colgrid="1"] { grid-template-columns: 410fr 365fr 363fr 398fr !important; gap: 0 !important; }
+        [data-colscene="1"] { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%); }
+        [data-colcard="1"]:first-child [data-colscene="1"] { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%), linear-gradient(90deg, transparent 0, #000 9%); -webkit-mask-composite: source-in; mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%), linear-gradient(90deg, transparent 0, #000 9%); mask-composite: intersect; }
+        [data-colcard="1"]:last-child [data-colscene="1"] { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%), linear-gradient(270deg, transparent 0, #000 9%); -webkit-mask-composite: source-in; mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%), linear-gradient(270deg, transparent 0, #000 9%); mask-composite: intersect; }
+      }
       [data-scenedev]:focus-visible { outline: 6px solid #8C7347; outline-offset: -6px; }
       @media (max-width: 899px) {
         [data-heroscene="1"] { display: none !important; }
@@ -1396,7 +1352,7 @@ class Component extends DCLogic {
     if (this.heroDevDone) return;
     const sec = document.getElementById("top");
     const els = document.querySelectorAll("[data-devscreen]");
-    if (!sec) return;
+    if (!sec || els.length < 5) return;
     this.heroDevDone = true;
     const fit = () => {
       els.forEach((el) => { if (el.clientWidth) el.style.setProperty("--s", (el.clientWidth / Number(el.dataset.devscreen)).toFixed(4)); });
@@ -1417,9 +1373,17 @@ class Component extends DCLogic {
 
   // Plays an embedded invitation by itself: opens it, scrolls through it, then starts over.
   heroDrive(frame, key) {
-    const cfg = key === "lap"
-      ? { on: "heroLapOn", hold: 2600, afterOpen: 1500, speed: 120, find: (d) => d.querySelector('button[aria-label="Enter the journey"]') }
-      : { on: "heroPhoneOn", hold: 2600, afterOpen: 4500, speed: 100, find: (d) => Array.from(d.querySelectorAll("div")).find((x) => x.style.cursor === "pointer" && x.style.borderRadius.indexOf("39.7%") >= 0) };
+    const enter = (d) => d.querySelector('button[aria-label="Enter the journey"]');
+    const gate = (d) => Array.from(d.querySelectorAll("div")).find((x) => x.style.cursor === "pointer" && x.style.borderRadius.indexOf("39.7%") >= 0);
+    const cover = (d) => Array.from(d.querySelectorAll("div")).find((x) => x.style.position === "fixed" && x.style.zIndex === "80");
+    const cfg = {
+      lap: { on: "heroLapOn", hold: 2600, afterOpen: 1500, speed: 120, find: enter },
+      phone: { on: "heroPhoneOn", hold: 2600, afterOpen: 4500, speed: 100, find: gate },
+      c0: { card: 0, hold: 1400, afterOpen: 1500, speed: 100, find: enter },
+      c1: { card: 1, hold: 1400, afterOpen: 4500, speed: 100, find: gate },
+      c3: { card: 3, hold: 1400, afterOpen: 4500, speed: 100, find: cover }
+    }[key];
+    if (!cfg) return;
     let win, doc;
     try { win = frame.contentWindow; doc = win.document; } catch (e) { return; }
     if (!doc || !doc.body) return;
@@ -1432,7 +1396,7 @@ class Component extends DCLogic {
     } catch (e) {}
     this.heroRun = this.heroRun || {};
     const id = (this.heroRun[key] = (this.heroRun[key] || 0) + 1);
-    const alive = () => this.heroRun[key] === id && frame.isConnected;
+    const alive = () => this.heroRun[key] === id && frame.isConnected && (cfg.card === undefined || this.state.colPlay === cfg.card);
     const wait = (ms) => new Promise((r) => this.later(r, ms));
     // Some invitations scroll the page, others scroll an inner panel.
     const panel = () => {
@@ -1465,7 +1429,7 @@ class Component extends DCLogic {
           const step = (now) => {
             if (!alive()) return done();
             const dt = Math.min(64, now - last); last = now;
-            if (this.heroVisible !== false) { y += (cfg.speed * dt) / 1000; setY(y); }
+            if (cfg.card !== undefined || this.heroVisible !== false) { y += (cfg.speed * dt) / 1000; setY(y); }
             if (y >= maxY() - 2) return done();
             requestAnimationFrame(step);
           };
@@ -1474,7 +1438,7 @@ class Component extends DCLogic {
         if (!alive()) return;
         await wait(2400);
         if (!alive()) return;
-        this.setState({ [cfg.on]: false });
+        if (cfg.on) this.setState({ [cfg.on]: false });
         await wait(1200);
         if (alive()) win.location.reload();
       } catch (e) {}
@@ -1769,6 +1733,31 @@ class Component extends DCLogic {
       colSticky: { position: "sticky", top: 0, height: "100svh", overflow: "hidden", display: "flex", alignItems: "center", background: tpls[act].bg, transition: "background 1.4s " + E },
       colGlow: { position: "absolute", right: "8%", top: "50%", width: "min(80vw,900px)", aspectRatio: "1", transform: "translateY(-50%)", borderRadius: "50%", background: "radial-gradient(circle, " + tpls[act].accent + "33, rgba(0,0,0,0) 62%)", transition: "background 1.4s " + E, pointerEvents: "none" },
       tplObjs, tplMetas, colTicks,
+      colCards: tpls.map((t, i) => {
+        const m = [
+          { w: 410, rect: [35.73, 23.4, 38.17, 68.9], color: "#5E7BA0", poster: "clouds", src: "./live/above-the-clouds.html", fill: null },
+          { w: 365, rect: [28.08, 23.6, 41.51, 69.2], color: "#5A1420", poster: "royal", src: "./live/royal-chapter.html", fill: "#5A1420" },
+          { w: 363, rect: [28.93, 23.6, 40.36, 68.8], color: "#3E5B3C", poster: "sea", src: t.url, fill: null, own: true },
+          { w: 398, rect: [26.38, 23.6, 37.94, 68.7], color: "#1C2342", poster: "mangal", src: "./live/mangal.html", fill: "#1C2342" }
+        ][i];
+        const playing = st.colPlay === i;
+        const start = () => { if (this.state.colPlay !== i) this.setState({ colPlay: i }); };
+        return {
+          num: this.pad(i + 1), name: t.name, mood: t.mood, tile: "./assets/col/scene/arch-" + (i + 1) + ".jpg", poster: "./assets/col/poster/" + m.poster + ".jpg", src: m.src,
+          alt: t.name + " invitation", playLabel: "Play the " + t.name + " invitation", playing, idle: !playing,
+          play: start, key: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); start(); } },
+          stop: (e) => { e.stopPropagation(); this.setState({ colPlay: null }); },
+          loaded: (e) => { if (!m.own) this.heroDrive(e.currentTarget, "c" + i); },
+          open: (e) => this.openDemo(i, e),
+          numStyle: { margin: "0 0 8px", fontFamily: "'Cormorant Garamond', serif", fontSize: "15px", letterSpacing: ".08em", color: m.color },
+          nameStyle: { margin: "0 0 10px", fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 400, fontSize: "clamp(28px,2.6vw,40px)", lineHeight: 1.05, color: m.color, whiteSpace: "nowrap" },
+          moodStyle: { margin: "0 0 clamp(8px,1vw,14px)", fontSize: "10px", letterSpacing: ".3em", textTransform: "uppercase", color: m.color },
+          sceneStyle: { position: "relative", width: "100%", aspectRatio: m.w + " / 500" },
+          screenStyle: { position: "absolute", left: m.rect[0] + "%", top: m.rect[1] + "%", width: m.rect[2] + "%", height: m.rect[3] + "%", overflow: "hidden", borderRadius: "11% / 5%", background: "#EFE4D4" },
+          frameStyle: { position: "absolute", left: 0, top: 0, width: "390px", height: "844px", border: 0, transformOrigin: "0 0", transform: "scale(var(--s,.4))", pointerEvents: m.own ? "auto" : "none", background: "#F5ECDE" },
+          btnStyle: { display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "12px", width: "min(74%, 270px)", marginTop: "clamp(10px,1.2vw,18px)", background: m.fill || "rgba(250,243,233,.55)", color: m.fill ? "#F5ECDE" : "#4A3A30", border: "1px solid " + (m.fill || "rgba(107,84,68,.45)"), padding: "17px 18px", borderRadius: "999px", fontSize: "10.5px", letterSpacing: ".24em", textTransform: "uppercase", whiteSpace: "nowrap", cursor: "pointer" }
+        };
+      }),
       open0: (e) => this.openDemo(0, e), open1: (e) => this.openDemo(1, e), open2: (e) => this.openDemo(2, e), open3: (e) => this.openDemo(3, e),
       wa0: waLink("Hi Nimantran, I'd like to customise the " + tpls[0].name + " invitation."), wa1: waLink("Hi Nimantran, I'd like to customise the " + tpls[1].name + " invitation."), wa2: waLink("Hi Nimantran, I'd like to customise the " + tpls[2].name + " invitation."), wa3: waLink("Hi Nimantran, I'd like to customise the " + tpls[3].name + " invitation."),
       colPos: this.pad(act + 1) + " / 04",
