@@ -1076,6 +1076,7 @@ class Component extends DCLogic {
       [data-howcard="1"]:hover [data-howbadge="1"] { transform: translateX(-50%) translateY(-6px) !important; box-shadow: 0 0 0 6px #F1E7D8, 0 0 22px rgba(185,154,85,.45) !important; }
       [data-howcards="1"]:has([data-howcard="1"]:hover) [data-howcard="1"]:not(:hover) { opacity: .75; transition: opacity .8s; }
       @media (min-width: 1100px) { [data-howgrid="1"] { grid-template-columns: minmax(0,.62fr) minmax(0,1.38fr) !important; align-items: start; } }
+      @media (min-width: 1100px) { #how { overflow: clip !important; } [data-howcards="1"] { position: sticky; top: clamp(62px, calc(100vh - var(--howh, 760px) - 16px), 112px); align-self: start; } }
       [data-fmtc="1"]:hover [data-fcard2="1"] { transform: translateY(-10px); border-color: rgba(230,200,142,.7) !important; box-shadow: 0 40px 70px -40px rgba(0,0,0,.8), 0 0 40px -10px rgba(201,165,106,.25); }
       [data-fmtc="1"]:hover [data-fimg="1"] { transform: scale(1.05) translateY(-1.5%); }
       [data-fmtc="1"]:hover [data-ficon="1"] { background: #C9A56A !important; color: #3D0C11 !important; transform: rotate(-6deg) scale(1.05); }
@@ -1354,10 +1355,12 @@ class Component extends DCLogic {
     this.heroDevDone = true;
     const fit = () => {
       els.forEach((el) => { if (el.clientWidth) el.style.setProperty("--s", (el.clientWidth / Number(el.dataset.devscreen)).toFixed(4)); });
+      const hc = document.querySelector('[data-howcards="1"]');
+      if (hc && hc.offsetHeight) hc.style.setProperty("--howh", hc.offsetHeight + "px");
       sec.style.setProperty("--hs", Math.min(sec.clientHeight / 846, (0.64 * sec.clientWidth) / 972).toFixed(4));
     };
     fit();
-    if (typeof ResizeObserver !== "undefined") { this.heroRO = new ResizeObserver(fit); this.heroRO.observe(sec); els.forEach((el) => this.heroRO.observe(el)); }
+    if (typeof ResizeObserver !== "undefined") { this.heroRO = new ResizeObserver(fit); this.heroRO.observe(sec); els.forEach((el) => this.heroRO.observe(el)); const hc = document.querySelector('[data-howcards="1"]'); if (hc) this.heroRO.observe(hc); }
     else window.addEventListener("resize", fit);
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (navigator.connection && navigator.connection.saveData) return;
