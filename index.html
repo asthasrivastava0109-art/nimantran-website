@@ -64,6 +64,7 @@
     </nav>
     <div style="display:flex;align-items:center;gap:10px">
       <a href="./brief/" style="{{ navCta }}">Create yours</a>
+      <a href="{{ waHref }}" target="_blank" rel="noopener" data-navcontact="1" style="{{ navContact }}">Contact us</a>
       <button data-mobonly="1" onClick="{{ toggleMenu }}" aria-label="Menu" style="width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:rgba(251,246,236,.88);box-shadow:inset 0 0 0 1px rgba(185,154,85,.55), 0 8px 18px -10px rgba(37,35,35,.4);flex-shrink:0">
         <span style="display:flex;flex-direction:column;gap:5px;align-items:flex-end"><span style="{{ navLine }}"></span><span style="{{ navLineShort }}"></span></span>
       </button>
@@ -965,7 +966,7 @@ class Component extends DCLogic {
     ["Music", "Add a soundtrack to your invitation."], ["RSVP", "Know who's coming."],
     ["Countdown", "Make the wait part of the celebration."], ["Events", "Keep every ceremony and gathering together."],
     ["Gallery", "Tell your story through photographs."], ["Maps", "Help everyone find their way."],
-    ["WhatsApp", "Share instantly with your guests."], ["Custom Domain", "Give your invitation its own beautiful home."]
+    ["WhatsApp", "Share instantly with your guests."], ["Custom Domain", "Give your invitation its own beautiful home."], ["Guest Photos", "One shared gallery of every guest's moments."]
   ];
 
   WHATSAPP_NUMBER = "917084777700";
@@ -1221,6 +1222,8 @@ class Component extends DCLogic {
         [data-colcard="1"]:first-child [data-colscene="1"] { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%), linear-gradient(90deg, transparent 0, #000 9%); -webkit-mask-composite: source-in; mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%), linear-gradient(90deg, transparent 0, #000 9%); mask-composite: intersect; }
         [data-colcard="1"]:last-child [data-colscene="1"] { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%), linear-gradient(270deg, transparent 0, #000 9%); -webkit-mask-composite: source-in; mask-image: linear-gradient(180deg, transparent 0, #000 2%, #000 97%, transparent 100%), linear-gradient(270deg, transparent 0, #000 9%); mask-composite: intersect; }
       }
+      [data-navcontact="1"]:hover { background: rgba(185,154,85,.14) !important; }
+      @media (max-width: 639px) { [data-navcontact="1"] { display: none !important; } }
       [data-scenedev]:focus-visible { outline: 6px solid #8C7347; outline-offset: -6px; }
       @media (max-width: 899px) {
         [data-heroscene="1"] { display: none !important; }
@@ -1668,6 +1671,7 @@ class Component extends DCLogic {
       navLogo: { fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(16px,2vw,19px)", letterSpacing: ".26em", color: dark ? "#F5ECDE" : "#4A1018", transition: "color .6s" },
       navLink: { fontSize: "11px", letterSpacing: ".2em", textTransform: "uppercase", color: ink, whiteSpace: "nowrap", transition: "color .6s" },
       navCta: { display: "inline-flex", alignItems: "center", background: dark ? "#E6D3A3" : "#4A1018", color: dark ? "#252323" : "#F5ECDE", padding: "12px clamp(14px,1.8vw,22px)", borderRadius: "999px", fontSize: "10.5px", letterSpacing: ".2em", textTransform: "uppercase", whiteSpace: "nowrap", transition: "background .6s, color .6s" },
+      navContact: { display: "inline-flex", alignItems: "center", background: "transparent", color: dark ? "#E6D3A3" : "#4A1018", border: "1px solid " + (dark ? "rgba(230,211,163,.7)" : "rgba(74,16,24,.55)"), padding: "11px clamp(14px,1.6vw,20px)", borderRadius: "999px", fontSize: "10.5px", letterSpacing: ".2em", textTransform: "uppercase", whiteSpace: "nowrap", transition: "background .4s, color .6s, border-color .6s" },
       navLine: { width: "18px", height: "1px", background: "#4A1018", display: "block" },
       navLineShort: { width: "11px", height: "1px", background: "#4A1018", display: "block" },
       drawerStyle: { position: "fixed", inset: 0, zIndex: 80, background: "#3B0C13", display: "flex", flexDirection: "column", clipPath: st.menu ? "inset(0 0 0 0)" : "inset(0 0 100% 0)", transition: "clip-path .8s cubic-bezier(.7,0,.2,1)" },
@@ -1786,8 +1790,8 @@ class Component extends DCLogic {
       },
 
       fs0: fs(0), fs1: fs(1), fs2: fs(2), fs3: fs(3), fs4: fs(4), fs5: fs(5), fs6: fs(6), fs7: fs(7),
-      featTitle: this.feats[fi][0], featLine: this.feats[fi][1], featPos: this.pad(fi + 1) + " / 08",
-      featBar: { height: "1px", background: "#4A1018", width: ((st.feat + 1) / 8 * 100) + "%", transition: "width .8s " + E, display: "block" },
+      featTitle: this.feats[fi][0], featLine: this.feats[fi][1], featPos: this.pad(fi + 1) + " / 09",
+      featBar: { height: "1px", background: "#4A1018", width: ((st.feat + 1) / 9 * 100) + "%", transition: "width .8s " + E, display: "block" },
       cdD: mainCd.d, cdH: mainCd.h, cdM: mainCd.m, cdS: mainCd.s,
 
       occBg: { position: "relative", padding: "clamp(90px,11vw,150px) 0", background: this.cats[oc].tint, transition: "background 1.2s " + E, overflow: "hidden" },
