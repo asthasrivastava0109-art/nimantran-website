@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Share your wedding details with Nimantran and we will design your invitation website or video.">
+<title>Nimantran Invitation Brief</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%}body{margin:0}
+
+/* Layout: one narrow ivory "invitation sheet" column, numbered sections (a real sequence), gold hairlines, burgundy actions */
+:root{
+  --bg:#f6efe3; --paper:#fffaf1; --ink:#3a1f28; --muted:#7d6a68; --line:#e2d3b6;
+  --gold:#a8812f; --gold-soft:#e9d7a8; --bur:#6b2236; --bur-ink:#fff7ea; --field:#fffdf8; --err:#a3262a;
+  --display:'Cormorant Garamond','Cormorant',Georgia,serif; --body:'Jost','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1c1015; --paper:#26161c; --ink:#f4e8d6; --muted:#b59f98; --line:#4a3036;
+  --gold:#dcbb73; --gold-soft:#5a4524; --bur:#e2b86c; --bur-ink:#2a1219; --field:#2d1b22; --err:#ff8f8f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1c1015; --paper:#26161c; --ink:#f4e8d6; --muted:#b59f98; --line:#4a3036;
+  --gold:#dcbb73; --gold-soft:#5a4524; --bur:#e2b86c; --bur-ink:#2a1219; --field:#2d1b22; --err:#ff8f8f; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.sheet{max-width:720px;margin:0 auto}
+header{text-align:center;padding:12px 0 28px}
+.mark{font:500 13px var(--body);letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+h1{font:italic 400 clamp(40px,9vw,60px)/1.05 var(--display);margin:10px 0 12px;text-wrap:balance}
+h1 b{font-style:normal;font-weight:500;color:var(--bur)}
+.lede{color:var(--muted);max-width:46ch;margin:0 auto}
+.orn{display:flex;align-items:center;gap:12px;justify-content:center;color:var(--gold);margin:18px 0 0}
+.orn::before,.orn::after{content:"";height:1px;width:64px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn::after{transform:scaleX(-1)}
+.orn i{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+section{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:26px max(18px,4vw);margin-top:18px}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sh span{font:italic 500 34px/1 var(--display);color:var(--gold)}
+h2{font:500 26px/1.15 var(--display);margin:0}
+.hint{color:var(--muted);font-size:14px;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.full{grid-column:1/-1}
+.f{min-width:0;display:flex;flex-direction:column;gap:6px}
+label,.lbl{font:500 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.req::after{content:" *";color:var(--gold)}
+input[type=text],input[type=tel],input[type=date],input[type=time],input[type=url],select,textarea{
+  width:100%;font:400 16px var(--body);color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:3px;padding:11px 12px}
+textarea{min-height:92px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,.chip input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.7}
+.invalid{border-color:var(--err)!important}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.chip span{display:block;padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:var(--field);font-size:15px;transition:.15s}
+.chip input:checked+span{background:var(--bur);color:var(--bur-ink);border-color:var(--bur)}
+.chip small{display:block;color:inherit;opacity:.75;font-size:12px}
+.moods .chip span{border-radius:3px;padding:12px 16px;min-width:150px}
+.moods b{font:italic 500 20px var(--display);display:block}
+.event{border:1px solid var(--line);border-radius:3px;padding:16px;margin-bottom:14px;background:var(--field)}
+.event .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.event .top strong{font:italic 500 20px var(--display);color:var(--bur)}
+.event .grid{grid-template-columns:repeat(3,1fr)}
+.event .span2{grid-column:span 2}
+.link{background:none;border:0;color:var(--bur);font:500 14px var(--body);cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:4px}
+.add{width:100%;background:none;border:1px dashed var(--gold);color:var(--bur);padding:12px;border-radius:3px;font:500 14px var(--body);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.add:hover{background:var(--gold-soft)}
+.note{border-left:2px solid var(--gold);padding:8px 14px;color:var(--muted);font-size:14px;margin-top:16px;background:color-mix(in srgb,var(--gold-soft) 35%,transparent)}
+.submit{text-align:center;margin-top:26px}
+.btn{display:inline-block;background:var(--bur);color:var(--bur-ink);border:0;border-radius:3px;padding:15px 30px;font:500 14px var(--body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.btn.alt{background:none;color:var(--bur);border:1px solid var(--bur);margin-left:8px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.btns .btn.alt{margin-left:0}
+#err{color:var(--err);margin:14px 0 0;min-height:1.4em;font-size:15px}
+#out{margin-top:18px;text-align:left}
+#out pre{white-space:pre-wrap;word-break:break-word;background:var(--field);border:1px solid var(--line);border-radius:3px;padding:16px;font:400 14px/1.6 var(--body);max-height:340px;overflow:auto}
+.after{color:var(--muted);font-size:14px;margin-top:10px}
+footer{text-align:center;margin-top:34px;color:var(--muted);font:italic 400 20px var(--display)}
+footer small{display:block;font:400 12px var(--body);letter-spacing:.2em;text-transform:uppercase;margin-top:6px}
+@media (max-width:560px){
+  .grid{grid-template-columns:1fr}.event .grid{grid-template-columns:1fr 1fr}.event .span2{grid-column:1/-1}
+  section{padding:22px 16px}.moods .chip span{min-width:0}.moods .chip{flex:1 1 140px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<div class="sheet">
+<header>
+  <a class="mark" href="../" style="text-decoration:none">Nimantran</a>
+  <h1>Tell us about your <b>celebration</b></h1>
+  <p class="lede">Share the details once and we will design your invitation website or video around them. It takes about five minutes.</p>
+  <div class="orn"><i></i></div>
+</header>
+
+<form id="f" novalidate>
+
+<section>
+  <div class="sh"><span>1</span><h2>What shall we create?</h2></div>
+  <p class="hint">Choose the format and the occasion.</p>
+  <div class="f full"><span class="lbl req">Format</span>
+    <div class="chips" id="format">
+      <label class="chip"><input type="radio" name="format" value="Website Invitation" checked><span>Website Invitation</span></label>
+      <label class="chip"><input type="radio" name="format" value="Invitation Video"><span>Invitation Video</span></label>
+      <label class="chip"><input type="radio" name="format" value="Website + Video"><span>Website + Video</span></label>
+      <label class="chip"><input type="radio" name="format" value="Digital Invitation Card"><span>Digital Card</span></label>
+    </div>
+  </div>
+  <div class="grid" style="margin-top:18px">
+    <div class="f"><label for="occasion">Occasion</label>
+      <select id="occasion"><option>Wedding</option><option>Engagement</option><option>Roka / Ring ceremony</option><option>Reception</option><option>Birthday</option><option>Baby shower / Naming ceremony</option><option>Anniversary</option><option>Housewarming</option><option>Other</option></select></div>
+    <div class="f"><label for="deadline">Need it ready by</label><input type="date" id="deadline"></div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><span>2</span><h2>The couple &amp; families</h2></div>
+  <p class="hint">Names appear exactly as you type them, so please check the spelling.</p>
+  <div class="grid">
+    <div class="f"><label for="bride" class="req">Bride's name</label><input type="text" id="bride" placeholder="e.g. Aanya" autocomplete="off"></div>
+    <div class="f"><label for="groom" class="req">Groom's name</label><input type="text" id="groom" placeholder="e.g. Vihaan" autocomplete="off"></div>
+    <div class="f"><label for="bparents">Bride's parents</label><input type="text" id="bparents" placeholder="Smt. / Shri ..."></div>
+    <div class="f"><label for="gparents">Groom's parents</label><input type="text" id="gparents" placeholder="Smt. / Shri ..."></div>
+    <div class="f"><label for="hashtag">Wedding hashtag (optional)</label><input type="text" id="hashtag" placeholder="#AanyaWedsVihaan"></div>
+    <div class="f"><label for="sub">Website address you would like</label><input type="text" id="sub" placeholder="aanyavihaan"><span style="font-size:13px;color:var(--muted)">Shown as <em>aanyavihaan.nimantaran.online</em>, subject to availability.</span></div>
+    <div class="f full"><label for="story">Your story or a welcome message</label><textarea id="story" placeholder="How you met, a line for your guests, or a blessing. A few sentences are enough."></textarea></div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><span>3</span><h2>Events</h2></div>
+  <p class="hint">Add every function guests are invited to, with date, time and venue.</p>
+  <div id="events"></div>
+  <button type="button" class="add" id="addEvent">+ Add another event</button>
+</section>
+
+<section>
+  <div class="sh"><span>4</span><h2>Look, feel &amp; language</h2></div>
+  <p class="hint">Pick the mood closest to what you imagine. You can choose more than one.</p>
+  <div class="chips moods" id="moods">
+    <label class="chip"><input type="checkbox" name="mood" value="Royal & Regal"><span><b>Royal</b><small>Gold, maroon, palace arches</small></span></label>
+    <label class="chip"><input type="checkbox" name="mood" value="Floral & Romantic"><span><b>Floral</b><small>Soft petals, pastels</small></span></label>
+    <label class="chip"><input type="checkbox" name="mood" value="Minimal & Modern"><span><b>Minimal</b><small>Clean, airy, simple</small></span></label>
+    <label class="chip"><input type="checkbox" name="mood" value="Destination & Scenic"><span><b>Scenic</b><small>Mountains, beaches, golden hour</small></span></label>
+    <label class="chip"><input type="checkbox" name="mood" value="Traditional & Auspicious"><span><b>Traditional</b><small>Ganesh, kalash, rangoli</small></span></label>
+  </div>
+  <div class="grid" style="margin-top:20px">
+    <div class="f"><label for="colors">Favourite colours</label><input type="text" id="colors" placeholder="e.g. ivory, sage green, gold"></div>
+    <div class="f"><span class="lbl">Language</span>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="lang" value="English" checked><span>English</span></label>
+        <label class="chip"><input type="radio" name="lang" value="Hindi"><span>Hindi</span></label>
+        <label class="chip"><input type="radio" name="lang" value="Hindi + English"><span>Both</span></label>
+      </div></div>
+    <div class="f"><label for="motif">Religious or cultural symbols to include</label><input type="text" id="motif" placeholder="e.g. Ganesh ji, Om, Kalash, none"></div>
+    <div class="f"><label for="music">Background music</label><input type="text" id="music" placeholder="Song name, or a YouTube / Spotify link"></div>
+    <div class="f full"><label for="ref">A reference you like (link)</label><input type="url" id="ref" placeholder="Paste a link to an invitation, video or Instagram post you liked"></div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><span>5</span><h2>What should it include?</h2></div>
+  <p class="hint">Tick everything you want. Guests will see these on their phones.</p>
+  <div class="chips" id="features">
+    <label class="chip"><input type="checkbox" name="feat" value="Custom domain" checked><span>Custom domain</span></label>
+    <label class="chip"><input type="checkbox" name="feat" value="Background music" checked><span>Background music</span></label>
+    <label class="chip"><input type="checkbox" name="feat" value="Event countdown" checked><span>Event countdown</span></label>
+    <label class="chip"><input type="checkbox" name="feat" value="RSVP management" checked><span>RSVP</span></label>
+    <label class="chip"><input type="checkbox" name="feat" value="Event details" checked><span>Event details</span></label>
+    <label class="chip"><input type="checkbox" name="feat" value="Photo & video gallery"><span>Photo &amp; video gallery</span></label>
+    <label class="chip"><input type="checkbox" name="feat" value="Location & Maps" checked><span>Location &amp; Maps</span></label>
+    <label class="chip"><input type="checkbox" name="feat" value="Guest photo sharing"><span>Guest photo sharing</span></label>
+  </div>
+  <div class="grid" style="margin-top:20px">
+    <div class="f"><label for="rsvpq">Ask guests in the RSVP</label><input type="text" id="rsvpq" placeholder="e.g. number of guests, food preference, stay needed"></div>
+    <div class="f"><label for="rsvpc">Who receives RSVPs? (name &amp; number)</label><input type="text" id="rsvpc" placeholder="e.g. Rohit (brother) 98xxxxxx"></div>
+    <div class="f full"><label for="words">Invitation wording (if you have one)</label><textarea id="words" placeholder="Paste the text you would like on the invitation, in English or Hindi."></textarea></div>
+    <div class="f full"><label for="vid">If you chose a video</label>
+      <select id="vid"><option value="">Not applicable</option><option>Short and snappy (about 30 seconds)</option><option>Standard (about 60 seconds)</option><option>Cinematic with our photos (up to 90 seconds)</option></select></div>
+  </div>
+  <div class="note">Photos, pre-wedding clips, logos and voice notes are easiest to share on WhatsApp. After you tap send in the last step, attach them in the same chat.</div>
+</section>
+
+<section>
+  <div class="sh"><span>6</span><h2>How do we reach you?</h2></div>
+  <p class="hint">We will send you a draft here first.</p>
+  <div class="grid">
+    <div class="f"><label for="cname" class="req">Your name</label><input type="text" id="cname" autocomplete="name"></div>
+    <div class="f"><label for="cphone" class="req">WhatsApp number</label><input type="tel" id="cphone" placeholder="+91 ..." autocomplete="tel"></div>
+    <div class="f"><label for="city">City</label><input type="text" id="city" placeholder="e.g. Gorakhpur"></div>
+    <div class="f"><label for="heard">How did you find us?</label>
+      <select id="heard"><option value="">Select</option><option>Instagram</option><option>A friend or family member</option><option>A wedding invitation I received</option><option>Wedding planner / photographer</option><option>Google</option><option>Other</option></select></div>
+    <div class="f full"><label for="extra">Anything else we should know?</label><textarea id="extra" placeholder="Special requests, surprises for guests, things to avoid."></textarea></div>
+  </div>
+</section>
+
+<div class="submit">
+  <div class="btns">
+    <button type="submit" class="btn">Send on WhatsApp</button>
+    <button type="button" class="btn alt" id="copy">Copy details</button>
+  </div>
+  <p id="err" role="alert"></p>
+  <div id="out" hidden>
+    <p class="after" id="sentNote"></p>
+    <pre id="txt"></pre>
+  </div>
+</div>
+</form>
+
+<footer>Until the next celebration<small>Nimantran · Digital invitations for every occasion</small></footer>
+</div>
+
+<script>
+const WA = '917084777700';
+const $ = id => document.getElementById(id);
+const EVENTS = ['Roka','Engagement','Haldi','Mehendi','Sangeet','Cocktail','Wedding / Pheras','Reception','Other'];
+let evCount = 0;
+
+function addEvent(pref){
+  evCount++;
+  const n = evCount, d = document.createElement('div');
+  d.className = 'event'; d.dataset.n = n;
+  d.innerHTML = `
+    <div class="top"><strong>Event ${n}</strong><button type="button" class="link rm">Remove</button></div>
+    <div class="grid">
+      <div class="f"><label for="en${n}">Function</label><select id="en${n}">${EVENTS.map(e=>`<option>${e}</option>`).join('')}</select></div>
+      <div class="f"><label for="ed${n}">Date</label><input type="date" id="ed${n}"></div>
+      <div class="f"><label for="et${n}">Time</label><input type="time" id="et${n}"></div>
+      <div class="f span2"><label for="ev${n}">Venue name</label><input type="text" id="ev${n}" placeholder="e.g. The Grand Palace, Civil Lines"></div>
+      <div class="f"><label for="ec${n}">Dress code</label><input type="text" id="ec${n}" placeholder="optional"></div>
+      <div class="f full"><label for="em${n}">Google Maps link or full address</label><input type="text" id="em${n}" placeholder="Paste a Maps link, or type the address"></div>
+    </div>`;
+  d.querySelector('.rm').onclick = () => { if(document.querySelectorAll('.event').length>1) d.remove(); renumber(); };
+  $('events').appendChild(d);
+  if(pref) $('en'+n).value = pref;
+  renumber();
+}
+function renumber(){
+  const all = document.querySelectorAll('.event');
+  all.forEach((e,i)=>{ e.querySelector('strong').textContent = 'Event '+(i+1); e.querySelector('.rm').hidden = all.length===1; });
+}
+$('addEvent').onclick = () => addEvent();
+addEvent('Wedding / Pheras');
+
+const val = id => ($(id).value||'').trim();
+const checked = name => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i=>i.value);
+const radio = name => (document.querySelector(`input[name="${name}"]:checked`)||{}).value || '';
+const fmtDate = s => { if(!s) return ''; const d = new Date(s+'T00:00:00'); return d.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric',weekday:'short'}); };
+const fmtTime = s => { if(!s) return ''; const [h,m]=s.split(':').map(Number); return `${((h+11)%12)+1}:${String(m).padStart(2,'0')} ${h<12?'AM':'PM'}`; };
+
+function build(){
+  const L = [];
+  const add = (k,v) => { if(v) L.push(`${k}: ${v}`); };
+  L.push('*NIMANTRAN: INVITATION BRIEF*','');
+  add('Format', radio('format')); add('Occasion', val('occasion')); add('Needed by', fmtDate(val('deadline')));
+  L.push('', '*COUPLE & FAMILY*');
+  add('Bride', val('bride')); add('Groom', val('groom'));
+  add("Bride's parents", val('bparents')); add("Groom's parents", val('gparents'));
+  add('Hashtag', val('hashtag')); add('Website address', val('sub') && val('sub')+'.nimantaran.online');
+  add('Story / message', val('story'));
+  L.push('', '*EVENTS*');
+  document.querySelectorAll('.event').forEach((e,i)=>{
+    const n = e.dataset.n;
+    const parts = [val('en'+n), fmtDate(val('ed'+n)), fmtTime(val('et'+n))].filter(Boolean).join(', ');
+    L.push(`${i+1}. ${parts}`);
+    if(val('ev'+n)) L.push(`   Venue: ${val('ev'+n)}`);
+    if(val('em'+n)) L.push(`   Location: ${val('em'+n)}`);
+    if(val('ec'+n)) L.push(`   Dress code: ${val('ec'+n)}`);
+  });
+  L.push('', '*STYLE*');
+  add('Mood', checked('mood').join(', ')); add('Colours', val('colors')); add('Language', radio('lang'));
+  add('Symbols', val('motif')); add('Music', val('music')); add('Reference', val('ref'));
+  L.push('', '*INCLUDE*');
+  add('Features', checked('feat').join(', ')); add('RSVP questions', val('rsvpq')); add('RSVP contact', val('rsvpc'));
+  add('Wording', val('words')); add('Video length', val('vid'));
+  L.push('', '*CONTACT*');
+  add('Name', val('cname')); add('WhatsApp', val('cphone')); add('City', val('city')); add('Found us via', val('heard'));
+  add('Notes', val('extra'));
+  return L.join('\n');
+}
+
+function validate(){
+  document.querySelectorAll('.invalid').forEach(e=>e.classList.remove('invalid'));
+  const need = [['bride','the bride\'s name'],['groom','the groom\'s name'],['cname','your name'],['cphone','your WhatsApp number']];
+  const miss = need.filter(([id])=>!val(id));
+  miss.forEach(([id])=>$(id).classList.add('invalid'));
+  const noDate = ![...document.querySelectorAll('.event')].some(e=>val('ed'+e.dataset.n));
+  if(noDate) document.querySelectorAll('.event input[type=date]').forEach(i=>i.classList.add('invalid'));
+  const msgs = miss.map(m=>m[1]); if(noDate) msgs.push('at least one event date');
+  if(val('cphone') && val('cphone').replace(/\D/g,'').length < 10){ $('cphone').classList.add('invalid'); msgs.push('a 10-digit WhatsApp number'); }
+  if(msgs.length){
+    $('err').textContent = 'Please add ' + msgs.join(', ') + '.';
+    const first = document.querySelector('.invalid'); if(first) first.focus();
+    return false;
+  }
+  $('err').textContent = ''; return true;
+}
+
+function show(text, note){ $('txt').textContent = text; $('sentNote').textContent = note; $('out').hidden = false; }
+
+$('f').addEventListener('submit', e=>{
+  e.preventDefault();
+  if(!validate()) return;
+  const text = build();
+  show(text, 'Your details are below. If WhatsApp did not open in a new tab, tap Copy details and paste them to +91 70847 77700.');
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(text), '_blank');
+});
+
+$('copy').onclick = async () => {
+  if(!validate()) return;
+  const text = build();
+  show(text, 'Copy the details below and paste them to +91 70847 77700 on WhatsApp.');
+  try { await navigator.clipboard.writeText(text); $('err').style.color='var(--gold)'; $('err').textContent='Copied. Paste it into WhatsApp.'; }
+  catch(_){ const r=document.createRange(); r.selectNodeContents($('txt')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); $('err').style.color='var(--gold)'; $('err').textContent='Text selected. Copy it and paste into WhatsApp.'; }
+  setTimeout(()=>{ $('err').style.color=''; },100);
+};
+</script>
+
+</body>
+</html>
